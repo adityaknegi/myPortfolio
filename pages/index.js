@@ -121,3 +121,19 @@ export default function Home() {
     </>
   )
 }
+
+
+export const getServerSideProps =  async () => {
+    try {
+        return {
+            props : {
+                test :  []
+            }
+        }
+    } catch(err) {}
+    return {
+        props : {
+            error : true
+        }
+    }
+}
