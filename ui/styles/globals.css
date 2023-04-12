@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @import url(''); */
+
+
+body {
+	font-family: 'Nunito', sans-serif;
+	margin: 0 auto;
+	color: #2F2F2F;
+}
+
+@layer components {
+	.btn-primary {
+		@apply flex items-center justify-center cursor-pointer bg-white opacity-100 h-12 py-0 outline-none shadow-btn tracking-1px leading-6 transition duration-100 ease-in hover:no-underline text-base rounded-3xl px-9.5 font-bold;
+	}
+
+	.button {
+		@apply flex items-center justify-center cursor-pointer opacity-100 py-0 h-14 outline-none shadow-btn tracking-1px leading-6 transition duration-100 ease-in hover:no-underline text-base rounded-3xl px-9.5 font-bold;
+	}
+
+	.LinkButton {
+		@apply mr-6 flex w-full md:w-80 items-center justify-center outline-none shadow-btn hover:text-liver transition duration-100 ease-in hover:no-underline text-liver hover:animate-shadowPulse md:h-14 h-14 sm:text-xl leading-7 tracking-1px;
+	}
+}
+
+@layer base {
+	h1,
+	.h1 {
+		@apply text-4xl;
+		@apply font-bold;
+		@apply leading-10;
+		@apply font-Nunito;
+	}
+
+	h2,
+	.h2 {
+		@apply text-2xl;
+		@apply font-bold;
+		@apply leading-8;
+		@apply font-Nunito;
+	}
+
+	h3,
+	.h3 {
+	  @apply text-xl;
+	  @apply font-semibold;
+	  @apply leading-7;
+	  @apply font-Nunito;
+	}
+
+	h4,
+	.h4 {
+		@apply text-base;
+		@apply font-bold;
+		@apply leading-6;
+		@apply font-Nunito;
+	}
+
+	h5,
+	.h5 {
+		@apply text-xs-h5;
+		@apply font-bold;
+		@apply leading-4;
+		@apply font-Nunito;
+	}
+
+	h6,
+	.h6 {
+		@apply text-xs-h6;
+		@apply font-bold;
+		@apply leading-3;
+		@apply font-Nunito;
+	}
+}
