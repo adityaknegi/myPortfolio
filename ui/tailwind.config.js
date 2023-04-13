@@ -30,9 +30,11 @@ module.exports = {
 		colors: {
 			...colors,
 			primary : {
-				100 : '#64C4D3',
-				50 : 'rgba(100, 196, 211, 0.5)',
-				40 : '#DDF1F4'
+				"main": '#64C4D3',
+			    "dark": '#D35055',
+				"extradark": '#73476D',
+				"light": '#F18B8F',
+				"extralight": '#FDEEEF',
 			},
 			surface : {
 				15: '#F8F8F8',

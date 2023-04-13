@@ -1,9 +1,12 @@
 import Head from 'next/head'
 import Header from "@/components/common/header";
+import Home from '@/components/HomePage/home';
+import Projects from '@/components/HomePage/Projects';
+import Contact from '@/components/HomePage/Contact';
 
+import Footer from '@/components/Footer/Footer';
 
-export default function Home(props) {
-  console.log(props)
+export default function indexPage(props) {
   return (
     <>
       <Head>
@@ -12,7 +15,12 @@ export default function Home(props) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      
       <Header />
+      <Home/>
+      <Projects/>
+      <Contact/>
+      <Footer/>
 
     </>
   )
@@ -20,6 +28,7 @@ export default function Home(props) {
 
 
 export const getServerSideProps =  async () => {
+  // testing server side 
     try {
         return {
             props : {
