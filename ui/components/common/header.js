@@ -37,7 +37,8 @@ const Header = ({  ...properties }) => {
 	]
     return (
         <>
-        <header className={`header w-full bg-primary-lightBlue h-24 md:h-20.25 relative  pt-2.5 md:py-6 z-20 hidden md:block shadow-md  hover-rotate 
+        <header className={`header w-full bg-primary-lightBlue h-24 md:h-20.25 relative  pt-2.5 md:py-6 z-20 hidden md:block shadow-md   
+        
 
         `}>
             <Container className='flex items-center justify-between py-2 '>
@@ -58,13 +59,14 @@ const Header = ({  ...properties }) => {
                             M_height="33"
                             />
                     </Link>
-                    <div  className="w-10/12 flex flex-row-reverse">
+                    <div  className="w-10/12 flex flex-row-reverse ">
                         {
                             menus.map((menu, index) => {
                                 return (
                                     <Link key={index} href={menu.url}>
-                                        <div className={`text-white mr-6 font-bold  ${router.pathname === menu.url ? 'md:active-border-bottom active-border-bottom' : ''}`}>
+                                        <div className={`text-white hover-rotate mr-6 font-bold  ${router.asPath === menu.url ? 'md:active-border-bottom active-border-bottom ' : ''}`}>
                                             {menu.label}
+                                            {}
                                         </div>
                                     </Link>
                                 )
