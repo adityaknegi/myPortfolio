@@ -1,8 +1,9 @@
 import Head from 'next/head'
 import Header from "@/components/common/header";
 import Home from '@/components/HomePage/home';
-import Projects from '@/components/HomePage/Projects';
+import Journey from '@/components/HomePage/Journey';
 import Contact from '@/components/HomePage/Contact';
+import AboutMe from '@/components/HomePage/AboutMe';
 
 import Footer from '@/components/Footer/Footer';
 
@@ -18,7 +19,8 @@ export default function indexPage(props) {
       
       <Header />
       <Home/>
-      <Projects/>
+      <AboutMe/>
+      <Journey/>
       <Contact/>
       <Footer/>
 

@@ -10,7 +10,6 @@ axios.interceptors.response.use(function (response) {
 
 }, function (error) {
   if (error?.response?.status === 401) {
-    removeAuth();
   }
   return Promise.reject(error);
 });

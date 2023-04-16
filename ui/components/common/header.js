@@ -22,8 +22,8 @@ const Header = ({  ...properties }) => {
 			url : '#aboutMe'
 		},
         {
-			label : 'Projects',
-			url : '#projects'
+			label : 'Journey',
+			url : '#journey'
 		},
         // {
 		// 	label : 'Skill',
@@ -37,8 +37,10 @@ const Header = ({  ...properties }) => {
 	]
     return (
         <>
-        <header className={`header w-full bg-primary-main	 h-24 md:h-20.25 relative  pt-2.5 md:py-6 z-20 `}>
-            <Container className='flex items-center justify-between py-2'>
+        <header className={`header w-full bg-primary-lightBlue h-24 md:h-20.25 relative  pt-2.5 md:py-6 z-20 hidden md:block shadow-md  hover-rotate 
+
+        `}>
+            <Container className='flex items-center justify-between py-2 '>
 
                 <div className="flex items-center justify-between container m-auto px-4 md:px-6 xl:px-0 ">
 

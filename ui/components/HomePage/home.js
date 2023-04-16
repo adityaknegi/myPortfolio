@@ -2,25 +2,23 @@ import Heading from '@/atoms/Heading'
 import { Button } from "@/atoms/index";
 import Image from 'next/image'
 import router from 'next/router'
-import Container from "@/atoms/Container";
 import Section from '@/molecules/Section'
 
 
 export default function Home(props) {
   return (
-    <>
-    <Section className={' bg-gray-200'} id="home">
-      <div className="flex flex-row	min-h-screen" >
-                <div className='w-1/2 flex items-center bg-yellow-100	 '>
-                    <div className='flex flex-col mx-auto my-auto'>
-                      <Heading type='h3' className='text-black md:text-6xl'>Aditya Kumar</Heading>
-                      <Heading type='h5' className='text-black md:text-2xl my-6'>Software developer</Heading>
+   <Section className={' pt-10 pb-10'} bgColor={'md:bg-primary-lightBlue  bg-primary-lightBlue text-white'} id="home">
+      <div className="flex flex-col md:flex-row	md:h-70vh " >
+                <div className='md:w-1/2 flex items-center md:bg-primary-lightBlue 	 '>
+                    <div className='flex flex-col  mx-auto my-auto'>
+                      <Heading type='h3' className='md:text-black text-2xl md:text-6xl'>Aditya Kumar</Heading>
+                      <Heading type='h5' className='md:text-black text-base md:text-2xl my-6'>Software developer</Heading>
                       <Button type="largeAlternate" className="text-white mt-3 w-full bg-primary-main" onClick={()=>{
                         router.push('#contact')
                       }} >Contact Me</Button>
                     </div>
                 </div>
-                <div className='w-1/2 bg-gray-200 flex items-center  '>
+                <div className='md:w-1/2 m-2 md:m-0 md:bg-primary-lightBlue  flex items-center  '>
                 <div className='flex flex-col mx-auto my-auto'>
                   <Image 
                               alt="hi"
@@ -41,7 +39,6 @@ export default function Home(props) {
         </div>
       </Section>
 
-    </>
   )
 }
 

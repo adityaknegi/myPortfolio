@@ -30,6 +30,7 @@ module.exports = {
 		colors: {
 			...colors,
 			primary : {
+				"lightBlue":'#ADD8E6',
 				"main": '#64C4D3',
 			    "dark": '#D35055',
 				"extradark": '#73476D',
@@ -146,6 +147,7 @@ module.exports = {
 				'2/7' : '45%'
 			}),
 			height: (theme) => ({
+				'70vh': '70vh',
 				'90vh': '90vh',
 				
 			}),
