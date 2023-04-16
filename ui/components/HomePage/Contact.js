@@ -49,27 +49,27 @@ const handleSubmit = (event) => {
         <div className="mt-4 ">
           <a href="mailto:reach-us@lissun.app" className="text-gray-700 font-bold">adityaknegi@gmail.com</a>
         </div>
-        <form class="md:w-[500px] mx-auto mt-8 border-2 p-10 md:p-20 bg-white" onSubmit={handleSubmit} >
-          <div class="mb-4">
-            <label class="block text-gray-700 font-bold mb-2" htmlFor="name">
+        <form className="md:w-[500px] mx-auto mt-8 border-2 p-10 md:p-20 bg-white" onSubmit={handleSubmit} >
+          <div className="mb-4">
+            <label className="block text-gray-700 font-bold mb-2" htmlFor="name">
               Name:
             </label>
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" name="name" placeholder="Your name" required/>
+            <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" name="name" placeholder="Your name" required/>
           </div>
-          <div class="mb-4">
-            <label class="block text-gray-700 font-bold mb-2" htmlFor="email">
+          <div className="mb-4">
+            <label className="block text-gray-700 font-bold mb-2" htmlFor="email">
               Email:
             </label>
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" name="email" placeholder="Your email" required/>
+            <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" name="email" placeholder="Your email" required/>
           </div>
-          <div class="mb-4">
-            <label class="block text-gray-700 font-bold mb-2" htmlFor="message">
+          <div className="mb-4">
+            <label className="block text-gray-700 font-bold mb-2" htmlFor="message">
               Message:
             </label>
-            <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="message" name="message" rows="5" placeholder="Your message" required></textarea>
+            <textarea className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="message" name="message" rows="5" placeholder="Your message" required></textarea>
           </div>
-          <div class="flex justify-center">
-            <button class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+          <div className="flex justify-center">
+            <button className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
               Send Message
             </button>
           </div>
