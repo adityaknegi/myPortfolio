@@ -2,11 +2,8 @@ import Section from '@/molecules/Section'
 import Card from '@/atoms/Card'
 import Heading from '@/atoms/Heading'
 import Text from '@/atoms/Text'
-import { useState } from 'react'
 
-
-export default function Journey(props) {
-  const [start, setStart] = useState(0)
+export default function Journey(props) {  
   const projectData = [
     {
       name: 'Data Science Intern   (2019)',
@@ -34,7 +31,7 @@ export default function Journey(props) {
     },
     {
       name: 'Software engineer at Knitter (Backend Engineer) (2020-2021)',
-      description: 'Worked as Backend development using Django, worked on api, query optimzation, caching to improve service user experience',
+      description: 'Worked as Backend development using Django, worked on api, query optimzation, caching to improve user experience',
       link:'',
       tech: ['Python', 'Django', 'postgreSql'],
 
@@ -65,10 +62,6 @@ export default function Journey(props) {
 
                   }
           </div>
-
-          
-
-
       </Section>
   )
 }
