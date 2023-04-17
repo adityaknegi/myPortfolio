@@ -34,7 +34,7 @@ export default function Journey(props) {
     },
     {
       name: 'Software engineer at Knitter (Backend Engineer) (2020-2021)',
-      description: 'App that tracks every type of Indian investments. Full-Stack Development: Android Application, web server (Django)',
+      description: 'Worked as Backend development using Django, worked on api, query optimzation, caching to improve service user experience',
       link:'',
       tech: ['Python', 'Django', 'postgreSql'],
 
