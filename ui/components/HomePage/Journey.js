@@ -48,14 +48,14 @@ export default function Journey(props) {
   ]
   return (
 
-    <Section className={''}  bgColor='bg-gray-200' id="journey" >
+    <Section className={''}   id="journey" >
         <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-2 2lg:grid-cols-3 grid-flow-dense md:text-white md:pbt-20 place-items-center ">
                   { projectData.map((project, index)=>{
-                    return <Card  className='card   md:bg-primary-main  border-4  my-2 px-5 2lg:my-4 2lg:px-4 hover-rotate w-[300px] md:w-[350px] h-[240px] md:h-[350px] overflow-y-auto' key={index}>
+                    return <Card  className='card   bg-[#4fbfd70f]  border-4  my-2 px-5 2lg:my-4 2lg:px-4 hover-rotate w-[300px] md:w-[350px] h-[240px] md:h-[350px] overflow-y-auto border-[#4FBFD7]' key={index}>
                           <div className="md:front md:pl-10 md:pt-10 mt-4 md:mt-0">
-                            <Heading type={'h3'}> {project.name}</Heading>
+                            <Heading type={'h3'} className='text-[#4FBFD7]'> {project.name}</Heading>
                             </div>
-                            <div className="md:back md:pl-10 mt-4 md:mt-8 ">
+                            <div className="md:back md:pl-10 mt-4 md:mt-8 text-black ">
                               <Text type={'bodyStyleDefault'}>{project.description}</Text>
                             </div>
 
