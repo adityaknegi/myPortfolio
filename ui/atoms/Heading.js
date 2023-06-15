@@ -1,3 +1,5 @@
+"use client"
+
 import PropTypes from 'prop-types';
 
 const Heading = ({children, type, ...property}) => {

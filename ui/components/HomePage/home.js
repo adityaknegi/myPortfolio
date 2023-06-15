@@ -1,44 +1,79 @@
+"use client"
+
+
 import Heading from '@/atoms/Heading'
+import Text from '@/atoms/Text'
+
 import { Button } from "@/atoms/index";
 import Image from 'next/image'
-import router from 'next/router'
+import { useRouter } from 'next/navigation';
+
 import Section from '@/molecules/Section'
 
 
 export default function Home(props) {
+  const router = useRouter();
+
+
   return (
-   <Section className={' pt-10 pb-10  '}id="home">
-      <div className="flex flex-col md:flex-row	md:h-70vh   border-2 rounded-2xl" >
-            <div className='md:w-1/2 flex items-center  bg-[#4FBFD7] 	 border-2 border-[#4FBFD7] '>
-                <div className='flex flex-col  mt-5  mx-auto  md:my-auto'>
-                  <Heading type='h3' className='text-white text-2xl md:text-6xl'>Aditya Kumar</Heading>
-                  <Heading type='h5' className='text-white text-base md:text-2xl my-6'>Software developer</Heading>
-                  <Button type="largeAlternate" className="mb-6" onClick={()=>{
-                    router.push('#contact')
-                  }} >Contact Me</Button>
-                </div>
-            </div>
-            
-            <div className='md:w-1/2  md:m-0 bg-primary-lightBlue  flex items-center  border-2 border-primary-lightBlue  '>
-              <div className='flex flex-col mx-auto my-auto '>
-                <Image 
-                            alt="hi"
-                            src={`/images/aditya_resume.jpeg`}
-                            width={200}
-                            className=' mt-8'
-                            height={200}
-                          />
-                          
-                  <Button type="largeAlternate" className="mt-3 mb-6" onClick={()=>{
-                      if (typeof window !== 'undefined') {
-                        window.open('https://drive.google.com/file/d/1Sw02boTJqhv4HKW4PciBe54YYOaqofwr/view?usp=sharing', '_blank', 'noopener,noreferrer');
-                      }
-                    }} >
-                    My Resume</Button>
-                </div>
-            </div>
+   <Section className={'border-2 '} bgColor={'bg-white'} id="home" containerType='type1'>
+    <div className='grid md:grid-cols-2	  w-full   '>
+        <div className=' h-full flex flex-col pt-20 pl-5 md:pl-10 md:py-60  md:justify-center   '>
+          <Text  className='text-gray-800 text-base md:text-1xl '>Hi I'am</Text>
+          <Heading type='h3' className='text-black text-2xl md:text-6xl'>Aditya Kumar</Heading>
+          <Heading type='h5' className='text-gray-800 text-base md:text-2xl my-6'>Software developer</Heading>
+          <div className='flex flex-row md:mt-2'>
+            <Button type="largeAlternate" className="w-40 mr-2 bg-[#4FBFD7] text-white" onClick={()=>{
+              router.push('#contact')
+            }} >Contact Me</Button>
+            <Button type="largeAlternate" className="w-40  bg-[#4FBFD7] text-white" onClick={()=>{
+              if (typeof window !== 'undefined') {
+                window.open('https://drive.google.com/file/d/1Sw02boTJqhv4HKW4PciBe54YYOaqofwr/view?usp=sharing', '_blank', 'noopener,noreferrer');
+              }
+            }} >
+            My Resume</Button>
+          </div>
         </div>
-      </Section>
+        <div className='grid grid-cols-4  md:w-2/3 place-items-center p-5 pt-30 pb-20'>  
+            
+            <Button onClick={
+              ()=>{
+                if(window) (window.open('https://github.com/adityaknegi'))
+              }
+            }> <Image 
+                alt="github"
+                src={`/images/github_logo.svg`}
+                width={60}
+                className='bg-white'
+                height={60}
+              /></Button>
+                <Button onClick={
+                  ()=>{
+                    
+                    if(window) (window.open('https://www.linkedin.com/in/negi1/'))
+                  }
+                }> <Image 
+                alt="linkDin"
+                src={`/images/linkdin_logo.svg`}
+                width={60}
+                className='bg-white'
+                height={60}
+              /></Button>
+                <Button onClick={
+                  ()=>{
+                    if(window) (window.open('https://www.kaggle.com/negi009'))
+                  }
+                }> <Image 
+                alt="kaggle"
+                src={`/images/kaggle_logo.svg`}
+                width={60}
+                className='bg-white'
+                height={60}
+              /></Button>
+        </div>
+      
+    </div>
+    </Section>
 
   )
 }

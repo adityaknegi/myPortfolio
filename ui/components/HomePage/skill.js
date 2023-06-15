@@ -1,7 +1,7 @@
 import Heading from '@/atoms/Heading'
 import { Button } from "@/atoms/index";
 import Image from 'next/image'
-import router from 'next/router'
+import router from 'next/navigation'
 
 export default function Skill(props) {
   return (

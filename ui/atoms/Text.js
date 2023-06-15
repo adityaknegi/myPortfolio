@@ -1,3 +1,5 @@
+"use client"
+
 import PropTypes from 'prop-types';
 
 const Text = ({ children, name, type='bodyStyleDefault', ...property}) => {

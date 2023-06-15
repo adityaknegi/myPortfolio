@@ -1,10 +1,13 @@
+"use client"
+
 import React from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Container from '@/atoms/Container';
 import Logo from '@/atoms/Logo';
+import {ToggleOff, ToggleOn} from '@mui/icons-material';
 
-const Header = () => {
+const Header = ({mode='Dark', setMode}) => {
   const router = useRouter();
 
   
@@ -25,14 +28,14 @@ const Header = () => {
     {
       label: 'Home',
       url: '#home',
-    },
+    }
   ];
 
   return (
     <header
       className={`header fixed top-0 w-full  h-24 md:h-20.25 relative  pt-2.5 md:py-6 z-50 shadow-md sticky border-2 bg-gray-50 `}
     >
-      <Container className='flex items-center justify-between py-2 '>
+      <Container className='flex items-center justify-between py-2 ' type='type1'>
         <div className='flex items-center justify-between container m-auto px-4 md:px-6 xl:px-0 '>
           <Link href={`/`} className='w-2/12 hidden md:block'>
             <Logo
@@ -53,8 +56,8 @@ const Header = () => {
               return (
                 <Link key={index} href={menu.url}>
                   <div
-                    className={` hover-rotate mr-6 font-bold  ${
-                      router.asPath === menu.url ? 'md:active-border-bottom active-border-bottom ' : ''
+                    className={` hover-rotate mr-6 font-bold  text-[#4FBFD7] ${
+                      router.asPath === menu.url ? 'md:active-border-bottom active-border-bottom  ' : ''
                     }`}
                   >
                     {menu.label}
@@ -63,6 +66,25 @@ const Header = () => {
               );
             })}
           </div>
+          <div className="ml-2 cursor-pointer"  onClick={()=>setMode(prev=> {
+            if(prev==='Dark'){
+              return 'Light' 
+              }else {
+                return 'Dark'
+                }
+                }
+                )
+                }>
+            {mode}
+            {mode =='Dark' ? 
+            <ToggleOff  fontSize="large" style={{ fontSize: 33 }}  >
+            </ToggleOff>:
+            <ToggleOn fontSize="large" style={{ fontSize: 33 }}  >
+            </ToggleOn>
+            }
+          </div>
+         
+          
         </div>
       </Container>
     </header>

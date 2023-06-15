@@ -1,3 +1,5 @@
+'use client';
+
 import Heading from '@/atoms/Heading'
 import Section from '@/molecules/Section'
 const axios = require('axios');
@@ -25,7 +27,6 @@ export default function Contact(props) {
     },
   });
 
-  console.log('Email sent:', response.data);
 };
 
 const handleSubmit = (event) => {

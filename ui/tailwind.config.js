@@ -3,6 +3,7 @@ const colors = require("tailwindcss/colors");
 module.exports = {
 
 	content: [
+		"./app/**/*.{js,ts,jsx,tsx,mdx}",
 		'./pages/*.js',
 		'./pages/**/*.js',
 		'./atoms/*.js',
@@ -154,6 +155,15 @@ module.exports = {
 			maxWidth: () => ({
 				9: '9rem',
 				102.75: '25.6rem',
+				320: '80rem', // 1280px Container Type 1
+				270: '67.5rem', // 1080 Container Type 2
+				102.752: '25.688rem', // 411px Container Type 3
+				129.752: '32.438rem', // 519px Container Type 4
+				211.5: '52.875rem', // 846px Container Type 5
+				48.5: '12.125rem', // 194px Container Type 6
+				157: '39.25rem', // 628px Container Type 7
+				130: '32.5rem', // 520px Container Type 8
+				75.5: '18.875rem', // 302px Container Type 9
 				}),
 			animation: {
 				shadowPulse: 'pulse-animation 2s infinite'
