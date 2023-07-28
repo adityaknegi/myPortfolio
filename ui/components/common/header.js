@@ -31,7 +31,7 @@ const Header = ({mode='Dark', setMode, setNavigationChange}) => {
       url: '#home',
     }
   ];
-  useLayoutEffect(() => {
+  useEffect(() => {
     setMode(initialMode)
     console.log(HeaderColors.sectionBg[mode])
   }, []);
