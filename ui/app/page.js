@@ -15,7 +15,7 @@ import { useEffect, useState} from 'react'
 //   };
 
   
-export default function indexPage(props) {
+function IndexPage(props) {
 
   const [navigationChange, setNavigationChange]= useState('')
   const [mode, setMode]= useState("Light")
@@ -45,3 +45,5 @@ export default function indexPage(props) {
     </>
   )
 }
+
+export default IndexPage

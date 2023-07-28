@@ -31,11 +31,11 @@ const Header = ({mode='Dark', setMode, setNavigationChange}) => {
       url: '#home',
     }
   ];
-  useEffect(() => {
+  useLayoutEffect(() => {
     setMode(initialMode)
     console.log(HeaderColors.sectionBg[mode])
-  }, []);
-
+  }, [mode, setMode]);
+    // ...
   const initialMode = () => {
     if (typeof window !== "undefined") {
       return localStorage.getItem("mode") || "Light";

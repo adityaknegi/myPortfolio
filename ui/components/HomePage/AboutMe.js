@@ -12,7 +12,7 @@ export default function AboutMe(props) {
      </Heading>
       <div className="w-full p-2">
         <Text className={`${AboutMeColors.textColor[props.mode]} mt-4  text-container bounce py-30`} type='bodyStyleExtraLarge' >
-              Hi, my name is Aditya and I'm a software engineer. I enjoy building
+              Hi, my name is Aditya and I&apos;m a software engineer. I enjoy building
               web applications and experimenting with new technologies. In my
               free time, I like to hike and explore the outdoors.
               Feel free to reach out to me at adityaknegi@gmail.com
