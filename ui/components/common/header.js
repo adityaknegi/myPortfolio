@@ -6,7 +6,6 @@ import Link from 'next/link';
 import Container from '@/atoms/Container';
 import Logo from '@/atoms/Logo';
 import {ToggleOff, ToggleOn} from '@mui/icons-material';
-import {HeaderColors} from '@/utils/constants'
 
 const Header = ({mode='Dark', setMode, setNavigationChange}) => {
   const router = useRouter();
@@ -46,6 +45,21 @@ const Header = ({mode='Dark', setMode, setNavigationChange}) => {
   useEffect(() => {
     localStorage?.setItem('mode', mode);
   }, [mode]);
+
+   const HeaderColors = {
+    sectionBg: {
+      Dark: ' bg-[#272b33] md:bg-gray-900 ',
+      Light: ' bg-gray-50'
+    },
+    textColor:{
+      Dark: 'text-white',
+      Light: 'text-gray-800'
+    },
+    Logo: {
+      Dark: 'bg-[#4FBFD7] ',
+      Light: 'text-gray-800 '
+    },
+  }
 
  
 

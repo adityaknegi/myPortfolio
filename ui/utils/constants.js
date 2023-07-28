@@ -1,18 +1,5 @@
 
-export const HeaderColors = {
-    sectionBg: {
-      Dark: ' bg-[#272b33] md:bg-blue-300 ',
-      Light: ' bg-gray-50'
-    },
-    textColor:{
-      Dark: 'text-white',
-      Light: 'text-gray-800'
-    },
-    Logo: {
-      Dark: 'bg-[#4FBFD7] ',
-      Light: 'text-gray-800 '
-    },
-  }
+
 
 export const HomeColors = {
     sectionBg: {
@@ -42,17 +29,17 @@ export const AboutMeColors = {
 
 export const MyJourneyColors = {
   sectionBg: {
-    Dark: ' bg-[#272b33] md:bg-black md:opacity-[80%]',
+    Dark: 'bg-[#272b33] md:bg-blue-500 md:opacity-[80%] ',
     Light: 'bg-gray-100 md:opacity-[100%]'
   },
   content: {
     heading:{
-      Dark: ' bg-[#272b33] md:bg-black md:opacity-[80%]',
+      Dark: ' bg-[#272b33] rounded-2xl p-5 text-white  md:bg-black md:opacity-[80%]',
       Light: 'text-[#4FBFD7]'
     },
     description:{
       Dark: ' text-black',
-      Light: 'text-white'
+      Light: 'text-black'
     },
   },
   textColor:{
