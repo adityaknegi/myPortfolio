@@ -19,7 +19,7 @@ export const HomeColors = {
 export const AboutMeColors = {
   sectionBg: {
     Dark: ' bg-[#272b33] md:bg-black md:opacity-[80%]',
-    Light: 'bg-gray-100 md:opacity-[100%]'
+    Light: 'bg-[#4FBFD7] md:bg-black'
   },
   textColor:{
     Dark: 'text-[#4FBFD7] ',
@@ -51,7 +51,7 @@ export const MyJourneyColors = {
 export const MyContactsColors = {
   sectionBg: {
     Dark: ' bg-[#272b33] md:bg-black md:opacity-[80%]',
-    Light: 'bg-gray-100 md:opacity-[100%]'
+    Light: 'bg-gray-50 md:opacity-[100%]'
   },
   textColor:{
     Dark: 'text-[#4FBFD7] ',
