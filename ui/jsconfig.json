@@ -7,7 +7,9 @@
       "@/atoms/*": ["atoms/*"],
       "@/molecules/*": ["molecules/*"],
       "@/organisms/*": ["organisms/*"],
-      "@/lib/*": ["lib/*"]
+      "@/lib/*": ["lib/*"],
+      "@/utils/*": ["utils/*"]
+      
     }
   },
   "exclude": [

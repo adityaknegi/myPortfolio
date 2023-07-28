@@ -4,6 +4,8 @@ import Heading from '@/atoms/Heading'
 import Section from '@/molecules/Section'
 const axios = require('axios');
 
+import {MyContactsColors} from '@/utils/constants'
+
 
 export default function Contact(props) {
   
@@ -44,7 +46,7 @@ const handleSubmit = (event) => {
 
 
   return (
-    <Section className={'w-full '}  id="contact" bgColor='bg-gray-100'>
+    <Section className={'w-full '}  bgColor={`${MyContactsColors.sectionBg[props.mode]}`} id="contact"  mode={props.mode}>
       <div className="flex flex-col pt-20 flex-center text-center p-10">
         <Heading type={'h1'} className="text-lg font-bold text-gray-700">Contact Me</Heading>
         <div className="mt-4 ">

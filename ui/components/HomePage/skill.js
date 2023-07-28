@@ -8,7 +8,7 @@ export default function Skill(props) {
     <>
 
       
-      <section className="flex flex-row min-h-screen	" id="home">
+      <section className="flex flex-row min-h-screen	" id="home"mode={props.mode}>
       <div className='w-1/2 flex items-center h-screen bg-yellow-100	 '>
           <div className='flex flex-col mx-auto my-auto'>
             <Heading type='h3' className='text-black md:text-6xl'>Aditya Kumar</Heading>

@@ -8,7 +8,7 @@ import AboutMe from '@/components/HomePage/AboutMe';
 import Contact from '@/components/HomePage/Contact';
 
 import Footer from '@/components/Footer/Footer';
-import {useState} from 'react'
+import { useEffect, useState} from 'react'
 
 // export const metadata = {
 //     title: 'Aditya Kumar',
@@ -17,19 +17,31 @@ import {useState} from 'react'
   
 export default function indexPage(props) {
 
-  const [mode, setMode]= useState('Dark')
+  const [navigationChange, setNavigationChange]= useState('')
+  const [mode, setMode]= useState("Light")
+
+
+ // Update local storage when the mode changes
+
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (typeof window !== "undefined") {
+
+      const hash = window?.location?.hash;
+      if (hash) document.querySelector(hash).scrollIntoView();
+      }
+    }, 0);
+  }, [navigationChange])
 
   return (
     <>
-      <Header mode={mode} setMode={setMode}/>
-      <Home/>
-      
-      <AboutMe/>
-      <Journey/>
-      <Contact/>
-      
-      <Footer/>
-
+      <Header mode={mode} setMode={setMode} setNavigationChange={setNavigationChange}/>
+      <Home     mode={mode}/>
+      <AboutMe  mode={mode}/>
+      <Journey  mode={mode}/>
+      <Contact  mode={mode}/>
+      <Footer   mode={mode}/>
     </>
   )
 }
