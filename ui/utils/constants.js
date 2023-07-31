@@ -47,8 +47,8 @@ export const MyJourneyColors = {
     Light: 'text-gray-800'
   },
   Tab:{
-    Dark: 'm-2 bg-[#272b33] text-white   rounded-2xl',
-    Light: 'm-2 bg-[#272b33] text-[#4FBFD7]   rounded-2xl'
+    Dark: 'border-2 bg-[#272b33] text-white   rounded-2xl',
+    Light: 'border-2 bg-[#272b33] text-[#4FBFD7]   rounded-2xl'
   }
 }
 
