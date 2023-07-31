@@ -18,7 +18,7 @@ export const HomeColors = {
 
 export const AboutMeColors = {
   sectionBg: {
-    Dark: ' bg-[#272b33] md:bg-black md:opacity-[80%]',
+    Dark: ' bg-[#272b33] ',
     Light: 'bg-[#4FBFD7] md:bg-black'
   },
   textColor:{
@@ -29,12 +29,12 @@ export const AboutMeColors = {
 
 export const MyJourneyColors = {
   sectionBg: {
-    Dark: 'bg-[#272b33] md:bg-blue-500 md:opacity-[80%] ',
+    Dark: 'bg-[#272b33] rounded-t-lg',
     Light: 'bg-gray-100 md:opacity-[100%]'
   },
   content: {
     heading:{
-      Dark: ' bg-[#272b33] rounded-2xl p-5 text-white  md:bg-black md:opacity-[80%]',
+      Dark: ' bg-[#272b33] rounded-2xl p-5 text-white ',
       Light: 'text-[#4FBFD7]'
     },
     description:{
@@ -46,22 +46,27 @@ export const MyJourneyColors = {
     Dark: 'text-[#4FBFD7] ',
     Light: 'text-gray-800'
   },
+  Tab:{
+    Dark: 'm-2 bg-[#272b33] text-white   rounded-2xl',
+    Light: 'm-2 bg-[#272b33] text-[#4FBFD7]   rounded-2xl'
+  }
 }
 
 export const MyContactsColors = {
   sectionBg: {
-    Dark: ' bg-[#272b33] md:bg-black md:opacity-[80%]',
+    Dark: ' bg-[#272b33]',
     Light: 'bg-gray-50 md:opacity-[100%]'
   },
   textColor:{
     Dark: 'text-[#4FBFD7] ',
     Light: 'text-gray-800'
-  },
+  }
+
 }
 
 export const FooterColors = {
   sectionBg: {
-    Dark: ' bg-[#272b33] md:bg-black md:opacity-[80%]',
+    Dark: ' bg-[#272b33]  md:bg-[#0a0b0d] text-white',
     Light: 'bg-gray-100 md:opacity-[100%]'
   },
   textColor:{

@@ -15,7 +15,7 @@ export default function Home({mode}) {
    <Section className={' '} bgColor={`${HomeColors.sectionBg[mode]}`} id="home" containerType='type1' mode={mode}>
     <div className='grid md:grid-cols-2	  w-full   '>
         <div className=' h-full flex flex-col pt-20 pl-5 md:pl-10 md:py-60  md:justify-center   '>
-          <Text  className={`${HomeColors.textColor[mode]} text-base md:text-1xl `}>'Hi I&apos;am'</Text>
+          <Text  className={`${HomeColors.textColor[mode]} text-base md:text-1xl `}>Hi I&apos;am</Text>
           <Heading type='h3' className={`${HomeColors.textColor[mode]} text-2xl md:text-6xl`}>Aditya Kumar</Heading>
           <Heading type='h5' className={`${HomeColors.textColor[mode]} text-base md:text-2xl my-6`}>Software developer</Heading>
           <div className='flex flex-row md:mt-2'>

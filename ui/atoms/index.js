@@ -5,6 +5,7 @@ import Button from "@/atoms/Button";
 import LinkButton from "@/atoms/LinkButton";
 import Container from "@/atoms/Container";
 import Card from "@/atoms/Card";
+import Tab from "@/atoms/Tab";
 
 export {
   Heading,
@@ -13,5 +14,6 @@ export {
   Container,
    Button,
    LinkButton,
-   Card
+   Card,
+   Tab
   };

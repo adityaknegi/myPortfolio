@@ -61,7 +61,7 @@ body {
 		@apply font-Nunito;
 	}
 }
-
+/* 
 .hover-rotate:hover {
 	transform: rotate(360deg);
 	transition: transform 0.5s ease;
@@ -75,10 +75,10 @@ body {
 	50% { transform: rotate(-5deg); }
 	75% { transform: rotate(5deg); }
 	100% { transform: rotate(0deg); }
-  }
+  } */
 
   
-.card {
+/* .card {
 	position: relative;
 	perspective: 1000px;
 }
@@ -95,17 +95,17 @@ body {
 
 .back {
 	transform: rotateY(180deg);
-	}
+	} */
 
-.card:hover .front {
+/* .card:hover .front {
 	transform: rotateY(180deg);
 	}
 
 .card:hover .back {
 	transform: rotateY(0);
-	}
+	} */
 
-.bounce:hover {
+/* .bounce:hover {
 	animation: bounce 1s infinite;
 	}
 	
@@ -120,4 +120,4 @@ body {
 		transform: translateY(0);
 	}
 	}
-	
+	 */

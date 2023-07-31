@@ -90,7 +90,7 @@ const Header = ({mode='Dark', setMode, setNavigationChange}) => {
               return (
                 <Link key={index} href={menu.url} onClick={()=>setNavigationChange(menu.url)}>
                   <div
-                    className={` hover-rotate mr-6 font-bold  text-[#4FBFD7] ${
+                    className={` mr-6 font-bold  text-[#4FBFD7] ${
                       router.asPath === menu.url ? 'md:active-border-bottom active-border-bottom  ' : ''
                     }`}
                   >
