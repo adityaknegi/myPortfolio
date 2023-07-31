@@ -7,7 +7,9 @@ module.exports = {
         imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
         domains: [],
     },
-  
+    reactStrictMode: true,
+    swcMinify: true,
+
     experimental: {
       appDir: true,
     }

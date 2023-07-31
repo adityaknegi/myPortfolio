@@ -66,12 +66,12 @@ export const MyContactsColors = {
 
 export const FooterColors = {
   sectionBg: {
-    Dark: ' bg-[#272b33]  md:bg-[#0a0b0d] text-white',
-    Light: 'bg-gray-100 md:opacity-[100%]'
+    Dark: ' bg-[#272b33]  md:bg-[#0a0b0d] ',
+    Light: 'bg-white text-black'
   },
   textColor:{
-    Dark: 'text-[#4FBFD7] ',
-    Light: 'text-gray-800'
+    Dark: 'text-white',
+    Light: 'text-black'
   },
 }
 
