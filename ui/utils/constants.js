@@ -1,5 +1,4 @@
-
-
+import {ContactMail,Timeline, Home, Person} from '@mui/icons-material';
 
 export const HomeColors = {
     sectionBg: {
@@ -14,12 +13,17 @@ export const HomeColors = {
       Dark: 'bg-white rounded-xl shadow-sm ',
       Light: 'text-gray-800'
     },
+    LogoButton: {
+      Dark:  'hover:bg-violet-600  '      ,
+      Light:  'hover:bg-black    '
+    },
+
   }
 
 export const AboutMeColors = {
   sectionBg: {
-    Dark: ' bg-[#272b33] ',
-    Light: 'bg-[#4FBFD7] md:bg-black'
+    Dark: ' bg-[#272b33]  ',
+    Light: 'bg-[#4FBFD7]'
   },
   textColor:{
     Dark: 'text-[#4FBFD7] ',
@@ -34,8 +38,8 @@ export const MyJourneyColors = {
   },
   content: {
     heading:{
-      Dark: ' bg-[#272b33] rounded-2xl p-5 text-white ',
-      Light: 'text-[#4FBFD7]'
+      Dark: ' bg-[#272b33] bg-[#4FBFD7] text-indigo-800 opacity-50	 ',
+      Light: 'text-black font-semibold		'
     },
     description:{
       Dark: ' text-black',
@@ -47,8 +51,8 @@ export const MyJourneyColors = {
     Light: 'text-gray-800'
   },
   Tab:{
-    Dark: 'border-2 bg-[#272b33] text-white   rounded-2xl',
-    Light: 'border-2 bg-[#272b33] text-[#4FBFD7]   rounded-2xl'
+    Dark: 'border-2  text-white   rounded-2xl',
+    Light: 'border-2 bg-[#272b33] text-white   rounded-2xl'
   }
 }
 
@@ -64,16 +68,41 @@ export const MyContactsColors = {
 
 }
 
-export const FooterColors = {
-  sectionBg: {
-    Dark: ' bg-[#272b33]  md:bg-[#0a0b0d] ',
-    Light: 'bg-white text-black'
+
+
+
+
+export const HeaderList = [
+
+  {
+    name: 'Home',
+    route: '#home',
+    icon : Home,
+    value: 'Home',
+
   },
-  textColor:{
-    Dark: 'text-white',
-    Light: 'text-black'
+  {
+    name: 'AboutMe',
+    route: '#aboutMe',
+    icon : Person,
+    value: 'About Me',
+
   },
-}
+  {
+    name: 'Journey',
+    route: '#journey',
+    icon : Timeline,
+    value: 'My Journey',
 
 
+  },
+  {
+    name: 'Contact',
+    route: '#contact',
+    icon : ContactMail,
+    value: 'Contact Me',
 
+  }
+  
+  
+]

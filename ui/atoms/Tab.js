@@ -6,7 +6,7 @@ const Tab = ({ children, active, className, onClick, ...props }) => {
 
   return (
     <div
-      className={`${className} px-4 py-2 focus:outline-none  `}
+      className={`${className} px-4 py-2 focus:outline-none hover:animate-pulse	 bg-cyan-500 shadow-sm m-1 `}
       onClick={onClick}
       {...props}
     >

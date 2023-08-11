@@ -46,30 +46,40 @@ const handleSubmit = (event) => {
 
 
   return (
-    <Section className={'w-full '}  bgColor={`${MyContactsColors.sectionBg[props.mode]}`} id="contact"  mode={props.mode}>
-      <div className="flex flex-col pt-20 flex-center text-center p-10">
-        <Heading type={'h1'} className="text-lg font-bold text-gray-700">Contact Me</Heading>
-        <div className="mt-4 ">
-          <a href="mailto:reach-us@lissun.app" className="text-gray-700 font-bold">adityaknegi@gmail.com</a>
+    <Section className={'w-full '}  bgColor={`${MyContactsColors.sectionBg[props.mode]}`} id="contact"  mode={props.mode} useRef={props.useRef}>
+      <div className="flex flex-col pt-20  md:py-20">
+        <Heading type={'h1'} className={`font-bold  text-center ${MyContactsColors.textColor[props.mode]}}`}>Contact Me</Heading>
+        <div className="mt-4 text-center ">
+          <a href="mailto:reach-us@lissun.app" className={`font-bold  ${MyContactsColors.textColor[props.mode]}}`}>adityaknegi@gmail.com</a>
         </div>
-        <form className="md:w-[500px] mx-auto mt-8 border-2 p-10 md:p-20 bg-white" onSubmit={handleSubmit} >
-          <div className="mb-4">
-            <label className="block text-gray-700 font-bold mb-2" htmlFor="name">
+        <form className="max-w-[800px] flex gap-4 flex-col w-full mx-auto mt-8 border-2 p-10 md:p-20 bg-red-50 rounded-2xl" onSubmit={handleSubmit} >
+          <div className="mb-4  flex  flex-col">
+            <label className={`${MyContactsColors.textColor[props.mode]}} font-semibold`} htmlFor="name">
               Name:
             </label>
-            <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" name="name" placeholder="Your name" required/>
-          </div>
-          <div className="mb-4">
-            <label className="block text-gray-700 font-bold mb-2" htmlFor="email">
+            <input
+              className="max-w-sm	 px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500"
+              id="name"
+              type="text"
+              name="name"
+              placeholder="Your name"
+              required
+            />          </div>
+          <div className="mb-4 flex  flex-col">
+            <label className={`${MyContactsColors.textColor[props.mode]}}  font-semibold`} htmlFor="email">
               Email:
             </label>
-            <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" name="email" placeholder="Your email" required/>
+            <input 
+              className="max-w-sm	 px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500"
+              id="email" type="email" name="email" placeholder="Your email" required/>
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700 font-bold mb-2" htmlFor="message">
+            <label className={`${MyContactsColors.textColor[props.mode]}} font-semibold`} htmlFor="message">
               Message:
             </label>
-            <textarea className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="message" name="message" rows="5" placeholder="Your message" required></textarea>
+            <textarea 
+              className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500"
+              id="message" name="message" rows="5" placeholder="Your message" required></textarea>
           </div>
           <div className="flex justify-center">
             <button className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">

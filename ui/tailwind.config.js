@@ -180,6 +180,11 @@ module.exports = {
 			scale: ['active', 'group-hover','hover'],
 			borderRadius: ['hover', 'focus', 'first', 'last'],
 			margin: ['first', 'last'],
+			transitionDuration: {
+				'2000': '2000ms',
+				'3000': '3000ms',
+				
+			  }
 		}
 	},
 	plugins: [

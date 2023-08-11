@@ -4,7 +4,7 @@ import React from 'react'
 function Section({ children, bgColor='bg-white', margin='my-0', padding='py-0', containerType='type1', id='', mode, ...props }) {
   return (
     <>
-    {mode ? <section className={`${bgColor} ${padding} ${margin} ${props.className}`} id={id}>
+    {mode ? <section className={`${bgColor} ${padding} ${margin} ${props.className}`} id={id} ref={props.useRef} >
         <Container type={containerType}>
             {children}
         </Container>
