@@ -9,6 +9,7 @@ import Contact from '@/components/HomePage/Contact';
 
 import Footer from '@/components/Footer/Footer';
 import { useEffect, useState, useRef} from 'react'
+import EclipseShape from '@/components/common/EclipseShape'
 
 // export const metadata = {
 //     title: 'Aditya Kumar',
@@ -48,7 +49,9 @@ function IndexPage(props) {
       <Home     mode={mode} useRef={sectionRefs['Home']}/>
      
       <AboutMe  mode={mode} useRef={sectionRefs['AboutMe']}/>
+      {/* <EclipseShape alt='ba'/> */}
       <Journey  mode={mode} useRef={sectionRefs['Journey']}/>
+
       <Contact  mode={mode} useRef={sectionRefs['Contact']}/>
       <Footer   mode={mode} />
     </>

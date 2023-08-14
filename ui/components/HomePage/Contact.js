@@ -16,10 +16,10 @@ export default function Contact(props) {
   const sendEmail = async (name, email, message) => {
   
   const data = {
-    sender: { name, email},
+    sender: { name, email:'adityaknegi@gmail.com'},
     to: [{ email: 'adityaknegi11@gmail.com' }],
     subject: 'New message from your portfolio website',
-    textContent: `${name} sent you a message:\n\n${message}`,
+    textContent: `${name} sent you a message:\n\n${message} from \n${email}`,
   };
 
   const response = await axios.post(apiUrl, data, {

@@ -43,9 +43,9 @@ export default function SignatureDesign() {
       <div
         className="relative h-full mr-2 md:mr-10 flex items-center justify-center text-white"
       >
-        <div className={`text-sm md:text-2xl font-semibold rotate-90 transform skew-y-12 ${textColor}`}>
+        {/* <div className={`text-sm md:text-2xl font-semibold rotate-90 transform skew-y-12 ${textColor}`}>
           Aditya
-        </div>
+        </div> */}
       </div>
     </div>
   );

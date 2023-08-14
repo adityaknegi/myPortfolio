@@ -1,3 +1,3 @@
-<svg width="1440" height="81" viewBox="0 0 1440 81" fill="none" xmlns="http://www.w3.org/2000/svg">
-<ellipse cx="719.5" cy="40.5" rx="730.5" ry="40.5" fill="white"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 81" fill="none">
+  <ellipse cx="719.5" cy="40.5" rx="730.5" ry="40.5"  fill='gray'/>
 </svg>
