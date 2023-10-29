@@ -43,26 +43,32 @@ export default function Journey(props) {
       tech: ['Nodejs', 'PostgreSql', 'NextJs', 'Angular', 'Aws'],
     },
   ]
+    const darkGradientStyle = {
+      backgroundImage: 'linear-gradient(to top, #141E30, #1A2533, #0D1317)'
+    };
   return (
 
-    <Section className={''}  bgColor={`${MyJourneyColors.sectionBg[props.mode]} `}  id="journey" mode={props.mode} useRef={props.useRef}>
+    <Section 
+    // style={props.mode =='Dark' && darkGradientStyle}
+
+    className={',d:py-10 relative z-10'}  bgColor={`${MyJourneyColors.sectionBg[props.mode]} `}  id="journey" mode={props.mode} useRef={props.useRef}>
         <Heading type ={'h2'} className={`${MyJourneyColors.textColor[props.mode]} text-3xl font-extrabold text-center py-20`}>
                         My Journey
         </Heading>
-        <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-2 2lg:grid-cols-3 grid-flow-dense md:text-white md:pbt-20 place-items-center ">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5  lg:grid-cols-2 2lg:grid-cols-3 grid-flow-dense md:text-white md:pbt-20 place-items-center ">
                   { projectData.map((project, index)=>{
-                    return <Card className=" shadow-xl shadow-white/40 hover:shadow-indigo-500/100 relative bg-red-50  my-2 px-5 2lg:my-4 2lg:px-4 w-[300px] md:w-[350px] h-[350px] overflow-y-auto  " key={index}>
-                    <div className="md:front md:pl-1 md:pt-5 mt-4 md:mt-0">
-                      <Heading type="h3" className={`${MyJourneyColors.content.heading[props.mode]} pt-4 text-center rounded-2xl h-20`}>
+                    return <Card className=" shadow-xl shadow-white/40 hover:shadow-indigo-500/100 relative  p-4 lg:my-4  w-full md:w-[350px] h-[350px] overflow-y-auto   " key={index}>
+                    <div className=" p-2 bg-blue-100">
+                      <Heading type="h3" className={`${MyJourneyColors.content.heading[props.mode]}  py-2 font-extrabold text-center  h-20 font-semibold`}>
                         {project.name}
                       </Heading>
                     </div>
-                    <div className="md:back pl-2 mt-4 md:mt-8 text-black text-center h-[100px]">
-                      <Text type="bodyStyleDefault" className={`${MyJourneyColors.content.description[props.mode]}`}>
+                    <div className=" pl-2 mt-4 md:mt-3 text-black text-center h-[100px] ">
+                      <Text type="bodyStyleDefault" className={`${MyJourneyColors.content.description[props.mode]}  md:text-base`}>
                         {project.description}
                       </Text>
                     </div>
-                    <div className='flex flex-wrap  w-full text-sm    bg-red-350 pt-2 right-0 p-2 absolute bottom-0 '>
+                    <div className='flex flex-wrap  w-full  bg-blue-100 pt-2 right-0 p-2 absolute bottom-0 '>
                       {project.tech.map((skill, index)=>(
                         <Tab key ={index} className={`${MyJourneyColors.Tab[props.mode]} `}>{skill}</Tab>
                       ))}

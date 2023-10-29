@@ -3,10 +3,10 @@
 import React, { useState, useEffect } from 'react';
 
 export default function SignatureDesign() {
-  const [textColor, setTextColor] = useState('text-white');
+  const [textColor, setTextColor] = useState('hide');
 
   const toggleTextColor = () => {
-    setTextColor(textColor === 'text-white' ? 'text-black' : 'text-white');
+    setTextColor(textColor === 'hide' ? 'text-black' : 'hide');
   };
 
   useEffect(() => {
@@ -22,11 +22,11 @@ export default function SignatureDesign() {
 
   return (
     <div 
-    className="bg-blue-500 h-10 md:h-20 opacity-70 hover:opacity-0 transition-opacity ease-in-out duration-2000"
+    className="bg-blue-500 h-10 md:h-20 opacity-50 hover:opacity-0 transition-opacity ease-in-out duration-2000"
     style={{
       transitionProperty: 'opacity',
       transitionDuration: '2000ms',
-      transitionTimingFunction: 'ease-in-out',
+      transitionTimingFunction: 'ease-in-out'
     }}
     >
       <div className="relative h-full">

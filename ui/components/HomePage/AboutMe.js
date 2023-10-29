@@ -21,9 +21,12 @@ export default function AboutMe(props) {
       window.location.href = 'mailto:' + email + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
   })
 },[])
-  return (
-   <Section className={''} padding='md:p-10 ' bgColor={`${AboutMeColors.sectionBg[props.mode]}`} id="aboutMe" mode={props.mode} useRef={props.useRef}>
-     <Heading type ={'h2'} className={`${AboutMeColors.textColor[props.mode]} text-3xl font-extrabold text-center p-2 `}>
+return (
+<Section className={' mt-[800px] relative z-10'}
+// style={props.mode =='Dark' && darkGradientStyle}
+
+    padding='md:p-10 ' bgColor={`${AboutMeColors.sectionBg[props.mode]}`} id="aboutMe" mode={props.mode} useRef={props.useRef}>
+     <Heading type ={'h2'} className={`${AboutMeColors.textColor[props.mode]} text-4xl font-extrabold text-center p-2 `}>
                     About Me
      </Heading>
      
@@ -31,13 +34,13 @@ export default function AboutMe(props) {
               Hey there, I&apos;m Aditya – a web applications enthusiast and software engineer. 
               I'm all about turning ideas into sleek digital experiences. 
               When I'm not coding, I'm out hiking and soaking in the great outdoors.
-               Feel free to drop me a line at <span class='text-white text-red-50 font-bold text-2lg cursor-pointer' id='emailLink'> adityaknegi@gmail.com</span> Let's connect and create something awesome!
+               Feel free to drop me a line at <span className=' text-blue-900 underline font-bold text-2lg cursor-pointer' id='emailLink'> adityaknegi@gmail.com</span> Let's connect and create something awesome!
               <br></br>
               
 
             </Text>
-            <Text type='bodyStyleExtraLarge' className='text-white text-red-50 font-bold text-xl mt-1 text-center'>Cheers,</Text>
-              <Text type='bodyStyleExtraLarge' className=' text-white font-bold text-xl text-center mt-2'>Aditya,</Text>
+            <Text type='bodyStyleExtraLarge' className=' text-blue-900 font-bold text-xl mt-1 text-center'>Cheers,</Text>
+              <Text type='bodyStyleExtraLarge' className=' ext-blue-900 font-bold text-xl text-center mt-2'>Aditya,</Text>
 
    </Section>
 

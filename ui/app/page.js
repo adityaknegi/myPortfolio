@@ -39,14 +39,19 @@ function IndexPage(props) {
 
       const hash = window?.location?.hash;
       if (hash) document.querySelector(hash)?.scrollIntoView();
+      if(hash=='#home') window.scrollTo(0, 0);;
       }
     }, 0);
   }, [navigationChange])
 
   return (
     <>
-      <Header mode={mode} setMode={setMode} setNavigationChange={setNavigationChange} sectionRefs={sectionRefs}/>
+      <Header mode={mode} setMode={setMode}  setNavigationChange={setNavigationChange} sectionRefs={sectionRefs}/>
+      <div className=" fixed h-[800px] w-full  ">
       <Home     mode={mode} useRef={sectionRefs['Home']}/>
+
+      </div>
+      {/* <div className="mb-[800px] md:mb-[800px]"></div> */}
      
       <AboutMe  mode={mode} useRef={sectionRefs['AboutMe']}/>
       {/* <EclipseShape alt='ba'/> */}

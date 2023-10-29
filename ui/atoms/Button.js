@@ -48,7 +48,7 @@ const Button = ({ children, onClick, isArrowShow=false, flex="flex", justify="ju
 
     return (
         <button type={buttonType[type]} className={` ${flex} ${justify} ${property.className} ${buttonStyle[type]} ${property.disabled && 'cursor-not-allowed opacity-50 hover:opacity-50 '}`} onClick={(e) => onClick && onClick(e)} 
-        {...(property.disabled && { disabled: property.disabled })} >
+        {...(property.disabled && { disabled: property.disabled }) } {...( property.style  &&{style:property.style })}>
             {children}
             {isArrowShow && (
                 <ArrowRightIcon fontSize="small" style={{ fontSize: 14 }} className="ml-2" /> 

@@ -26,7 +26,7 @@ const Container = ({children, type='type1', className, ...property}) => {
 		full: "w-full max-w-full mx-auto"
 	};
     return (
-        <div type={contentType[type]} className={` ${containerStyle[type]} ${className || ''}`} {...property}>
+        <div type={contentType[type]} className={` ${containerStyle[type]} ${className || ''}`} {...property} >
             {children}
         </div>
     );

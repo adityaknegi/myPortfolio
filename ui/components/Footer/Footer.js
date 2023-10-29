@@ -16,7 +16,7 @@ export default function Footer(props) {
 	  }
 	return (
 		<>
-		{props?.mode ? <footer className={` text-sm overflow-hidden md:pt-20 md:pb-14 py-10 bg-black ${FooterColors?.sectionBg[props?.mode]}`}>
+		{props?.mode ? <footer className={` relative z-10 text-sm overflow-hidden md:pt-20 md:pb-14 py-10 bg-black ${FooterColors?.sectionBg[props?.mode]}`}>
 			<Container type='type0' className={`px-4 md:px-0  ${FooterColors.textColor[props?.mode]}`}>
 				<div className="font-Nunito font-normal text-sm text-monochromatic pt-6 text-center">
 					Designed and developed with  <span style={{ color: 'red' }}>❤</span> by Aditya Kumar 2023

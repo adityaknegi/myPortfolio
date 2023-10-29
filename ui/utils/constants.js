@@ -2,8 +2,8 @@ import {ContactMail,Timeline, Home, Person} from '@mui/icons-material';
 
 export const HomeColors = {
     sectionBg: {
-      Dark: ' bg-[#272b33] md:bg-black md:opacity-[81%]',
-      Light: 'bg-white'
+      Dark: ' bg-black md:bg-opacity-2',
+      Light: 'bg-gray-50'
     },
     textColor:{
       Dark: 'text-white ',
@@ -22,33 +22,33 @@ export const HomeColors = {
 
 export const AboutMeColors = {
   sectionBg: {
-    Dark: ' bg-[#272b33]  ',
-    Light: 'bg-[#4FBFD7]'
+    Dark: ' bg-black   ',
+    Light: 'bg-gray-50'
   },
   textColor:{
-    Dark: 'text-[#4FBFD7] ',
-    Light: 'text-gray-800'
+    Dark: 'text-white font-semibold ',
+    Light: 'text-black font-semibold '
   },
   }
 
 export const MyJourneyColors = {
   sectionBg: {
-    Dark: 'bg-[#272b33] rounded-t-lg',
-    Light: 'bg-gray-100 md:opacity-[100%]'
+    Dark: 'bg-black rounded-t-lg',
+    Light: 'bg-gray-50 md:opacity-[100%]'
   },
   content: {
     heading:{
-      Dark: ' bg-[#272b33] bg-[#4FBFD7] text-indigo-800 opacity-50	 ',
+      Dark: '  text-black font-semibold 	 ',
       Light: 'text-black font-semibold		'
     },
     description:{
-      Dark: ' text-black',
-      Light: 'text-black'
+      Dark: ' text-black font-normal  ',
+      Light: 'text-black font-normal'
     },
   },
   textColor:{
-    Dark: 'text-[#4FBFD7] ',
-    Light: 'text-gray-800'
+    Dark: 'text-white font-semibold ',
+    Light: 'text-black font-semibold '
   },
   Tab:{
     Dark: 'border-2  text-white   rounded-2xl',
@@ -58,12 +58,12 @@ export const MyJourneyColors = {
 
 export const MyContactsColors = {
   sectionBg: {
-    Dark: ' bg-[#272b33]',
-    Light: 'bg-gray-50 md:opacity-[100%]'
+    Dark: ' bg-black',
+    Light: 'bg-gray-50'
   },
   textColor:{
-    Dark: 'text-[#4FBFD7] ',
-    Light: 'text-gray-800'
+    Dark: 'text-black ',
+    Light: 'text-black'
   }
 
 }
