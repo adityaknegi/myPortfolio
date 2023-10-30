@@ -44,7 +44,7 @@ export default function Home({ mode, useRef }) {
       {/* <SignatureDesign mode={mode}/> */}
 
       <div className="grid md:grid-cols-2	 gap-10 w-full  md:p-1 ">
-        <div className=" h-full flex flex-col pt-10 pl-5 md:pl-10 md:py-60  md:justify-center ">
+        <div className=" h-full flex flex-col pt-10 pl-5 md:pl-10 md:py-40 lg:py-50 md:justify-center ">
           {/* <Text
             className={`${HomeColors.textColor[mode]} text-base md:text-1xl `}
           >
@@ -58,13 +58,11 @@ export default function Home({ mode, useRef }) {
           </Heading>
           <Heading
             type="h5"
-            className={`${HomeColors.textColor[mode]} text-base md:text-[24px] my-2 md:my-6 font-semiBold`}
+            className={`${HomeColors.textColor[mode]} text-base md:text-[24px] my-2 md:my-6  font-semiBold`}
           >
             Software developer
           </Heading>
-          <Text
-            className={`${HomeColors.textColor[mode]} text-sm md:text-lg`}
-          >
+          <Text className={`${HomeColors.textColor[mode]} text-sm md:text-lg`}>
             I'm an enthusiastic and self-driven programmer who relishes taking
             on complex real-world challenges. My quick-start mentality,
             curiosity, and passion for coding empower me to navigate intricate
@@ -97,7 +95,7 @@ export default function Home({ mode, useRef }) {
               My Resume
             </Button>
           </div>
-          <div className=" grid grid-cols-4  gap-2  place-items-center   h-10 w-full md:w-2/3 rounded-2xl pl-10 pt-1 md:p-1 ">
+          <div className=" flex  gap-3 mt-10  place-items-center   h-10 w-full md:w-2/3 rounded-2xl   ">
             {LinkList?.map((item) => (
               <div className="bg-white p-2 h-[80px]  flex items-center rounded-xl border  ">
                 <Button
@@ -127,10 +125,14 @@ export default function Home({ mode, useRef }) {
           //   backgroundSize: "fit",
           // }}
         >
-
-        <img className="object-cover  h-full md:h-[80%]  rounded-[100px] mx-0 md:mx-2 p-10" src='images/aditya-img-1.png'>
-        </img>
-          </div>
+          <Image
+            className="object-fit h-full md:h-[80%] rounded-[100px] mx-0 md:mx-2 p-10"
+            src="/images/aditya-img-1.png" // Make sure to provide the correct path
+            width={700} // Adjust the width to your desired value
+            height={300} // Adjust the height to your desired value
+            alt="A description of the image" // Add a meaningful alt text
+          />
+        </div>
       </div>
     </Section>
   );

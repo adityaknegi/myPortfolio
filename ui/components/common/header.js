@@ -54,7 +54,7 @@ const Header = ({
       Light: "text-gray-800 ",
     },
     MenuBarSec: {
-      Dark: " bg-[#1e2128] md:bg-white ",
+      Dark: " bg-black md:bg-gray-300 ",
       Light: " bg-gray-50",
     },
   };
@@ -146,6 +146,21 @@ const Header = ({
     };
   }, []);
 
+  const dropRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropRef.current && !dropRef.current.contains(event.target)) {
+        setShowSideBar(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside, false);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside, false);
+    };
+  }, [dropRef]);
+
+
   return (
     <header
       className={`header fixed top-0 w-full    relative  pt-2.5 md:py-3 z-50  sticky bg-black  ${HeaderColors.sectionBg[mode]} `}
@@ -223,9 +238,10 @@ const Header = ({
         <MenuTwoTone fontSize="large" style={{ fontSize: 33 }}></MenuTwoTone>
       </div>
       <div
-        className={`h-screen -mt-2 block md:hidden w-[310px] z-50  ${
+        className={`h-screen -mt-2 block md:hidden w-[350px]   fixed	z-50 bg-opacity-90 ${
           HeaderColors.MenuBarSec[mode]
         }  ${showSideBar ? "block" : "hidden"} `}
+        ref={dropRef}
       >
         <LeftSideNav
           onChangeMode={onChangeMode}

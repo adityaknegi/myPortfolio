@@ -39,7 +39,10 @@ function LeftSideNav({
       className={`w-full block md:hidden pt-10 text-center h-screen w-[280px] opacity-100 `}
     >
       <div
-        className={`py-5  pl-7 ml-20   rounded-2xl w-40  ${HeaderColors.Logo[mode]}`}
+        className={`py-5  pl-7 ml-20   rounded-2xl w-40  
+        ${ mode === "Dark" ? "bg-white " : "bg-[#4FBFD7] "}
+
+        `}
       >
         <Link href={`/`} className=" bg-blue md:block">
           <Logo
@@ -64,7 +67,10 @@ function LeftSideNav({
         {HeaderList?.map((item) => (
           <React.Fragment key={item.name}>
             <div
-              className={`flex flex-row mt-[30px] items-center h-13 hover:text-black border-b rounded-xl w-2/3 p-2`}
+              className={`flex flex-row mt-[30px] items-center h-13 hover:text-black   rounded-xl w-11/12  p-2
+             ${ mode === "Dark" ? "border-2 " : "border-2 border-black	 "}
+
+              `}
               onClick={() => router.push(`/${item.route}`)}
             >
               {item.icon && (
@@ -77,8 +83,8 @@ function LeftSideNav({
                 ></item.icon>
               )}
               <span
-                className={`font-Nunito font-bold md:text-base text-2xl cursor-pointer w-full text-left ms-2 ${
-                  mode === "Dark" ? "text-white " : "text-black"
+                className={`font-Nunito font-bold md:text-base text-3xl cursor-pointer w-full text-left ms-2 ${
+                  mode === "Dark" ? "text-white " : "text-black "
                 }`}
               >
                 {" "}
@@ -88,7 +94,7 @@ function LeftSideNav({
           </React.Fragment>
         ))}
         <div
-          className={`text-start cursor-pointer text-xl mt-10 ${
+          className={`text-start cursor-pointer   text-3xl mt-10 ${
             mode === "Dark" ? "text-white " : "text-black"
           }`}
           onClick={onChangeMode}
@@ -97,10 +103,10 @@ function LeftSideNav({
           {mode == "Dark" ? (
             <ToggleOff
               fontSize="large"
-              style={{ fontSize: 60, color: "white" }}
+              style={{ fontSize: 80, color: "white" }}
             ></ToggleOff>
           ) : (
-            <ToggleOn fontSize="large" style={{ fontSize: 60 }}></ToggleOn>
+            <ToggleOn fontSize="large" style={{ fontSize: 80 }}></ToggleOn>
           )}
         </div>
       </div>
