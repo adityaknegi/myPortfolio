@@ -7,7 +7,6 @@ import { useRouter } from "next/navigation";
 
 import Section from "@/molecules/Section";
 import { HomeColors } from "@/utils/constants";
-import SignatureDesign from "@/components/common/SignatureDesign";
 
 export default function Home({ mode, useRef }) {
   const router = useRouter();
@@ -41,8 +40,6 @@ export default function Home({ mode, useRef }) {
       mode={mode}
       useRef={useRef}
     >
-      {/* <SignatureDesign mode={mode}/> */}
-
       <div className="grid md:grid-cols-2	 gap-10 w-full  md:p-1 ">
         <div className=" h-full flex flex-col pt-10 pl-5 md:pl-10 md:py-40 lg:py-50 md:justify-center ">
           {/* <Text
@@ -96,8 +93,11 @@ export default function Home({ mode, useRef }) {
             </Button>
           </div>
           <div className=" flex  gap-3 mt-10  place-items-center   h-10 w-full md:w-2/3 rounded-2xl   ">
-            {LinkList?.map((item,index) => (
-              <div className="bg-white p-2 h-[80px]  flex items-center rounded-xl border  ">
+            {LinkList?.map((item, index) => (
+              <div
+                className="bg-white p-2 h-[80px]  flex items-center rounded-xl border                   key={index}
+ "
+              >
                 <Button
                   key={index}
                   className={HomeColors.LogoButton[mode]}
