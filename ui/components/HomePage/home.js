@@ -96,10 +96,10 @@ export default function Home({ mode, useRef }) {
             </Button>
           </div>
           <div className=" flex  gap-3 mt-10  place-items-center   h-10 w-full md:w-2/3 rounded-2xl   ">
-            {LinkList?.map((item) => (
+            {LinkList?.map((item,index) => (
               <div className="bg-white p-2 h-[80px]  flex items-center rounded-xl border  ">
                 <Button
-                  key={item.id}
+                  key={index}
                   className={HomeColors.LogoButton[mode]}
                   onClick={() => {
                     if (window) window.open(item.url);
