@@ -25,7 +25,7 @@ const Header = ({
   // ...
   const initialMode = () => {
     if (typeof window !== "undefined") {
-      return localStorage.getItem("mode") || "Light";
+      return localStorage.getItem("mode") || "Dark";
     } else {
       return "Light";
     }
@@ -159,7 +159,6 @@ const Header = ({
       document.removeEventListener("mousedown", handleClickOutside, false);
     };
   }, [dropRef]);
-
 
   return (
     <header
