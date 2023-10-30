@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 
-export default function SignatureDesign() {
+export default function SignatuareDesign() {
   const [textColor, setTextColor] = useState('hide');
 
   const toggleTextColor = () => {

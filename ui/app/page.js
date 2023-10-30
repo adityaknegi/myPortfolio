@@ -17,7 +17,7 @@ import EclipseShape from "@/components/common/EclipseShape";
 
 function IndexPage(props) {
   const [navigationChange, setNavigationChange] = useState("");
-  const [mode, setMode] = useState("Dark");
+  const [mode, setMode] = useState("Light");
 
   // Update local storage when the mode changes
   const sectionRefs = {
