@@ -27,7 +27,7 @@ const Header = ({
     if (typeof window !== "undefined") {
       return localStorage.getItem("mode") || "Dark";
     } else {
-      return "Light";
+      return "Dark";
     }
   };
   useEffect(() => {
