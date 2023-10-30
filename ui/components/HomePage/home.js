@@ -95,8 +95,9 @@ export default function Home({ mode, useRef }) {
           <div className=" flex  gap-3 mt-10  place-items-center   h-10 w-full md:w-2/3 rounded-2xl   ">
             {LinkList?.map((item, index) => (
               <div
-                className="bg-white p-2 h-[80px]  flex items-center rounded-xl border                   key={index}
+                className="bg-white p-2 h-[80px]  flex items-center rounded-xl border                
  "
+                key={index}
               >
                 <Button
                   key={index}
