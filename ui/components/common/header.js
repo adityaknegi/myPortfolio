@@ -4,10 +4,11 @@ import React, { useEffect, useLayoutEffect, useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Container from "@/atoms/Container";
-import { MenuTwoTone, ToggleOff, ToggleOn, Close } from "@mui/icons-material";
+import { MenuTwoTone, ToggleOff, ToggleOn, Close, SportsEsports } from "@mui/icons-material";
 import LeftSideNav from "./LeftSide";
 import debounce from "lodash.debounce";
 import { motion, AnimatePresence } from "framer-motion";
+import ColorMatchGame from "./ColorMatchGame";
 
 const Header = ({
   mode = "Dark",
@@ -17,6 +18,7 @@ const Header = ({
 }) => {
   const router = useRouter();
   const [showSideBar, setShowSideBar] = useState(false);
+  const [showGame, setShowGame] = useState(false);
   const wrapperRef = useRef(null);
 
   useLayoutEffect(() => {
@@ -37,26 +39,26 @@ const Header = ({
 
   const HeaderColors = {
     sectionBg: {
-      Dark: " bg-[#272b33] md:bg-black  ",
-      Light: " bg-gray-50 border-b",
+      Dark: "bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900",
+      Light: "bg-white/95 border-b border-gray-200",
     },
     ButtonOptionsCol: {
-      Dark: `text-white  items-center leading-5  p-3 whitespace-pre
-        hover:bg-gray-50 hover:text-black   bg-white bg-opacity-10  `,
+      Dark: `text-white items-center leading-5 p-3 whitespace-pre
+        hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-500 hover:text-white bg-slate-700/50`,
       Light:
-        " text-black  items-center leading-5 text-lg p-2 whitespace-pre  hover:md:bg-gray-300   bg-black bg-opacity-10 border-b-black",
+        "text-gray-700 items-center leading-5 text-lg p-2 whitespace-pre hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-400 hover:text-white bg-gray-100",
     },
     textColor: {
-      Dark: "text-white ",
-      Light: "text-gray-800 ",
+      Dark: "text-gray-100",
+      Light: "text-gray-800",
     },
     Logo: {
-      Dark: "bg-[#4FBFD7] ",
-      Light: "text-gray-800 ",
+      Dark: "bg-gradient-to-r from-cyan-500 to-blue-500",
+      Light: "bg-gradient-to-r from-cyan-400 to-blue-400",
     },
     MenuBarSec: {
-      Dark: " bg-black md:bg-gray-300 ",
-      Light: " bg-gray-50",
+      Dark: "bg-gradient-to-b from-slate-900 to-slate-800",
+      Light: "bg-white",
     },
   };
 
@@ -202,29 +204,43 @@ const Header = ({
               );
             })}
           </div>
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className={`ml-2 cursor-pointer flex items-center gap-2 text-lg font-bold ${
-              mode === "Dark" ? "text-white" : "text-black"
-            }`}
-            onClick={onChangeMode}
-          >
-            {mode === "Dark" ? "Light" : "Dark"}
-            {mode === "Dark" ? (
-              <ToggleOff
-                fontSize="large"
-                style={{ fontSize: 50, color: "white" }}
-              />
-            ) : (
-              <ToggleOn fontSize="large" style={{ fontSize: 50 }} />
-            )}
-          </motion.div>
+          <div className="flex items-center gap-4">
+            {/* Game Button */}
+            <motion.button
+              whileHover={{ scale: 1.1, rotate: 5 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setShowGame(true)}
+              className="p-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl shadow-lg hover:shadow-xl transition-all"
+              title="Play Color Match Game"
+            >
+              <SportsEsports style={{ fontSize: 28, color: "white" }} />
+            </motion.button>
+
+            {/* Mode Toggle */}
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className={`cursor-pointer flex items-center gap-2 text-lg font-bold ${
+                mode === "Dark" ? "text-white" : "text-black"
+              }`}
+              onClick={onChangeMode}
+            >
+              {mode === "Dark" ? "Light" : "Dark"}
+              {mode === "Dark" ? (
+                <ToggleOff
+                  fontSize="large"
+                  style={{ fontSize: 50, color: "white" }}
+                />
+              ) : (
+                <ToggleOn fontSize="large" style={{ fontSize: 50 }} />
+              )}
+            </motion.div>
+          </div>
         </div>
       </Container>
 
-      {/* Mobile Menu Button */}
-      <div className="block md:hidden px-4">
+      {/* Mobile Menu & Game Buttons */}
+      <div className="block md:hidden px-4 flex items-center justify-between">
         <motion.div
           whileTap={{ scale: 0.9 }}
           className={`cursor-pointer ${HeaderColors.textColor[mode]}`}
@@ -232,6 +248,15 @@ const Header = ({
         >
           <MenuTwoTone fontSize="large" style={{ fontSize: 40 }} />
         </motion.div>
+
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          onClick={() => setShowGame(true)}
+          className="p-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl shadow-lg"
+        >
+          <SportsEsports style={{ fontSize: 28, color: "white" }} />
+        </motion.button>
       </div>
 
       {/* Mobile Sidebar */}
@@ -265,6 +290,13 @@ const Header = ({
           </>
         )}
       </AnimatePresence>
+
+      {/* Color Match Game */}
+      <ColorMatchGame
+        isOpen={showGame}
+        onClose={() => setShowGame(false)}
+        mode={mode}
+      />
     </motion.header>
   );
 };
