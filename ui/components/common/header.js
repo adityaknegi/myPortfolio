@@ -4,9 +4,10 @@ import React, { useEffect, useLayoutEffect, useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Container from "@/atoms/Container";
-import { MenuTwoTone, ToggleOff, ToggleOn } from "@mui/icons-material";
+import { MenuTwoTone, ToggleOff, ToggleOn, Close } from "@mui/icons-material";
 import LeftSideNav from "./LeftSide";
-import debounce from "lodash.debounce"; // Import the debounce function
+import debounce from "lodash.debounce";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Header = ({
   mode = "Dark",
@@ -161,15 +162,18 @@ const Header = ({
   }, [dropRef]);
 
   return (
-    <header
-      className={`header fixed top-0 w-full    relative  pt-2.5 md:py-3 z-50  sticky bg-black  ${HeaderColors.sectionBg[mode]} `}
+    <motion.header
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5 }}
+      className={`header fixed top-0 w-full pt-2.5 md:py-3 z-50 backdrop-blur-md ${HeaderColors.sectionBg[mode]} shadow-lg`}
     >
       <Container
-        className="flex items-center justify-between py-2   hidden md:block font-bold text-lg"
+        className="flex items-center justify-between py-2 hidden md:block font-bold text-lg"
         type="type1"
       >
-        <div className="flex items-center justify-between ">
-          <div className="flex flex-row w-full flex-row-reverse	 justify-between   ">
+        <div className="flex items-center justify-between">
+          <div className="flex flex-row w-full flex-row-reverse justify-between">
             {menus.map((menu, index) => {
               return (
                 <Link
@@ -177,36 +181,30 @@ const Header = ({
                   href={menu.url}
                   onClick={() => {
                     setNavigationChange(menu.url);
-                    // setMenus((prevState) => [
-                    //   ...prevState.map((d) => ({
-                    //     ...d,
-                    //     ...(menu.id === d.id
-                    //       ? { isActive: true }
-                    //       : { isActive: false }),
-                    //   })),
-                    // ]);
                   }}
                 >
-                  <div
-                    className={` mr-6  md:min-w-10 lg:min-w-[190px] p-3 text-center  text-[20px] border-b rounded-xl
-                    
+                  <motion.div
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                    className={`mr-6 md:min-w-10 lg:min-w-[190px] p-3 text-center text-[20px] rounded-xl transition-all duration-300
                     ${HeaderColors.ButtonOptionsCol[mode]}
-                   
                     ${
                       menu.isActive &&
                       (mode === "Dark"
-                        ? "md:bg-white md:text-black  "
-                        : "md:bg-[#4FBFD7] ")
+                        ? "md:bg-white md:text-black shadow-xl"
+                        : "md:bg-[#4FBFD7] md:text-white shadow-xl")
                     }
                     `}
                   >
                     {menu.value}
-                  </div>
+                  </motion.div>
                 </Link>
               );
             })}
           </div>
-          <div
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             className={`ml-2 cursor-pointer flex items-center gap-2 text-lg font-bold ${
               mode === "Dark" ? "text-white" : "text-black"
             }`}
@@ -214,43 +212,60 @@ const Header = ({
           >
             {mode === "Dark" ? "Light" : "Dark"}
             {mode === "Dark" ? (
-              <>
-                <ToggleOff
-                  fontSize="large"
-                  style={{ fontSize: 50, color: "white" }}
-                />
-              </>
+              <ToggleOff
+                fontSize="large"
+                style={{ fontSize: 50, color: "white" }}
+              />
             ) : (
-              <>
-                <ToggleOn fontSize="large" style={{ fontSize: 50 }} />
-              </>
+              <ToggleOn fontSize="large" style={{ fontSize: 50 }} />
             )}
-          </div>
+          </motion.div>
         </div>
       </Container>
-      <div
-        className={`block md:hidden  ${showSideBar ? "hidden" : "block"} ${
-          HeaderColors.textColor[mode]
-        } `}
-        onClick={() => setShowSideBar(true)}
-      >
-        <MenuTwoTone fontSize="large" style={{ fontSize: 33 }}></MenuTwoTone>
+
+      {/* Mobile Menu Button */}
+      <div className="block md:hidden px-4">
+        <motion.div
+          whileTap={{ scale: 0.9 }}
+          className={`cursor-pointer ${HeaderColors.textColor[mode]}`}
+          onClick={() => setShowSideBar(true)}
+        >
+          <MenuTwoTone fontSize="large" style={{ fontSize: 40 }} />
+        </motion.div>
       </div>
-      <div
-        className={`h-screen -mt-2 block md:hidden w-[350px]   fixed	z-50 bg-opacity-90 ${
-          HeaderColors.MenuBarSec[mode]
-        }  ${showSideBar ? "block" : "hidden"} `}
-        ref={dropRef}
-      >
-        <LeftSideNav
-          onChangeMode={onChangeMode}
-          setShowSideBar={setShowSideBar}
-          mode={mode}
-          wrapperRef={wrapperRef}
-          HeaderColors={HeaderColors}
-        />
-      </div>
-    </header>
+
+      {/* Mobile Sidebar */}
+      <AnimatePresence>
+        {showSideBar && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.5 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="fixed inset-0 bg-black z-40 md:hidden"
+              onClick={() => setShowSideBar(false)}
+            />
+            <motion.div
+              initial={{ x: -350 }}
+              animate={{ x: 0 }}
+              exit={{ x: -350 }}
+              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              className={`h-screen fixed left-0 top-0 w-[85vw] max-w-[350px] z-50 shadow-2xl ${HeaderColors.MenuBarSec[mode]}`}
+              ref={dropRef}
+            >
+              <LeftSideNav
+                onChangeMode={onChangeMode}
+                setShowSideBar={setShowSideBar}
+                mode={mode}
+                wrapperRef={wrapperRef}
+                HeaderColors={HeaderColors}
+              />
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+    </motion.header>
   );
 };
 
