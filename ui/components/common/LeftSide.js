@@ -52,7 +52,7 @@ function LeftSideNav({
       <div className="flex justify-between items-center mb-8">
         <div
           className={`py-4 px-6 rounded-2xl ${
-            mode === "Dark" ? "bg-white" : "bg-[#4FBFD7]"
+            mode === "Dark" ? "bg-gradient-to-r from-cyan-500 to-blue-500" : "bg-gradient-to-r from-cyan-400 to-blue-400"
           } shadow-lg`}
         >
           <Link href={`/`} className="bg-blue md:block">
@@ -103,8 +103,8 @@ function LeftSideNav({
               whileTap={{ scale: 0.98 }}
               className={`flex flex-row mt-5 items-center rounded-xl w-full p-4 cursor-pointer transition-all ${
                 mode === "Dark"
-                  ? "border-2 border-white/20 hover:bg-white/10"
-                  : "border-2 border-black/20 hover:bg-black/5"
+                  ? "border-2 border-cyan-500/30 hover:bg-gradient-to-r hover:from-cyan-500/20 hover:to-blue-500/20"
+                  : "border-2 border-cyan-400/30 hover:bg-gradient-to-r hover:from-cyan-400/10 hover:to-blue-400/10"
               }`}
               onClick={() => {
                 router.push(`/${item.route}`);
@@ -142,8 +142,8 @@ function LeftSideNav({
             whileTap={{ scale: 0.98 }}
             className={`flex items-center justify-between cursor-pointer p-4 rounded-xl ${
               mode === "Dark"
-                ? "bg-white/10 hover:bg-white/20"
-                : "bg-black/5 hover:bg-black/10"
+                ? "bg-gradient-to-r from-purple-600/20 to-pink-600/20 hover:from-purple-600/30 hover:to-pink-600/30 border-2 border-purple-500/30"
+                : "bg-gradient-to-r from-cyan-400/10 to-blue-400/10 hover:from-cyan-400/20 hover:to-blue-400/20 border-2 border-cyan-400/30"
             }`}
             onClick={onChangeMode}
           >

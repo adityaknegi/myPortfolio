@@ -2,68 +2,68 @@ import {ContactMail,Timeline, Home, Person} from '@mui/icons-material';
 
 export const HomeColors = {
     sectionBg: {
-      Dark: ' bg-black md:bg-opacity-2',
-      Light: 'bg-gray-50'
+      Dark: 'bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900',
+      Light: 'bg-gradient-to-br from-gray-50 to-white'
     },
     textColor:{
-      Dark: 'text-white ',
+      Dark: 'text-gray-100',
       Light: 'text-gray-800'
     },
     Logo: {
-      Dark: 'bg-white rounded-xl shadow-sm ',
-      Light: 'text-gray-800'
+      Dark: 'bg-white rounded-xl shadow-lg',
+      Light: 'bg-gray-100 rounded-xl shadow-md'
     },
     LogoButton: {
-      Dark:  'hover:bg-violet-600  '      ,
-      Light:  'hover:bg-black    '
+      Dark: 'hover:bg-gradient-to-r hover:from-purple-600 hover:to-pink-600',
+      Light: 'hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-500'
     },
 
   }
 
 export const AboutMeColors = {
   sectionBg: {
-    Dark: ' bg-black   ',
-    Light: 'bg-gray-50'
+    Dark: 'bg-gradient-to-br from-slate-800 to-slate-900',
+    Light: 'bg-gradient-to-br from-white to-gray-50'
   },
   textColor:{
-    Dark: 'text-white font-semibold ',
-    Light: 'text-black font-semibold '
+    Dark: 'text-gray-100 font-semibold',
+    Light: 'text-gray-800 font-semibold'
   },
   }
 
 export const MyJourneyColors = {
   sectionBg: {
-    Dark: 'bg-black rounded-t-lg',
-    Light: 'bg-gray-50 md:opacity-[100%]'
+    Dark: 'bg-gradient-to-b from-slate-900 to-slate-800 rounded-t-lg',
+    Light: 'bg-gradient-to-b from-gray-50 to-white'
   },
   content: {
     heading:{
-      Dark: '  text-black font-semibold 	 ',
-      Light: 'text-black font-semibold		'
+      Dark: 'text-white font-semibold',
+      Light: 'text-gray-800 font-semibold'
     },
     description:{
-      Dark: ' text-black font-normal  ',
-      Light: 'text-black font-normal'
+      Dark: 'text-gray-300 font-normal',
+      Light: 'text-gray-700 font-normal'
     },
   },
   textColor:{
-    Dark: 'text-white font-semibold ',
-    Light: 'text-black font-semibold '
+    Dark: 'text-gray-100 font-semibold',
+    Light: 'text-gray-800 font-semibold'
   },
   Tab:{
-    Dark: 'border-2  text-white   rounded-2xl',
-    Light: 'border-2 bg-[#272b33] text-white   rounded-2xl'
+    Dark: 'border-2 border-cyan-500/30 text-white rounded-2xl hover:border-cyan-400',
+    Light: 'border-2 border-cyan-400/30 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-2xl'
   }
 }
 
 export const MyContactsColors = {
   sectionBg: {
-    Dark: ' bg-black',
-    Light: 'bg-gray-50'
+    Dark: 'bg-gradient-to-b from-slate-800 to-slate-900',
+    Light: 'bg-gradient-to-b from-white to-gray-50'
   },
   textColor:{
-    Dark: 'text-black ',
-    Light: 'text-black'
+    Dark: 'text-gray-100',
+    Light: 'text-gray-800'
   }
 
 }
