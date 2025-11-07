@@ -1,7 +1,10 @@
+"use client";
+
 import Section from "@/molecules/Section";
 
 import { Tab, Heading, Card, Text } from "@/atoms/index";
 import { MyJourneyColors } from "@/utils/constants";
+import { motion } from "framer-motion";
 
 export default function Journey(props) {
   const projectData = [
@@ -48,65 +51,98 @@ export default function Journey(props) {
   const darkGradientStyle = {
     backgroundImage: "linear-gradient(to top, #141E30, #1A2533, #0D1317)",
   };
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50, scale: 0.9 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    },
+  };
+
   return (
     <Section
-      // style={props.mode =='Dark' && darkGradientStyle}
-
-      className={",d:py-10 relative z-10"}
-      bgColor={`${MyJourneyColors.sectionBg[props.mode]} `}
+      className={"py-10 md:py-20 relative z-10 px-4 md:px-8"}
+      bgColor={`${MyJourneyColors.sectionBg[props.mode]}`}
       id="journey"
       mode={props.mode}
       useRef={props.useRef}
     >
-      <Heading
-        type={"h2"}
-        className={`${
-          MyJourneyColors.textColor[props.mode]
-        } text-3xl font-extrabold text-center py-20`}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
       >
-        My Journey
-      </Heading>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5  lg:grid-cols-2 2lg:grid-cols-3 grid-flow-dense md:text-white md:pbt-20 place-items-center ">
-        {projectData.map((project, index) => {
-          return (
-            <Card
-              key={index}
-              className=" shadow-xl shadow-white/40 hover:shadow-indigo-500/100 relative  p-4 lg:my-4  w-full md:w-[350px] h-[350px] overflow-y-auto   "
+        <Heading
+          type={"h2"}
+          className={`${MyJourneyColors.textColor[props.mode]} text-3xl md:text-5xl font-extrabold text-center py-10 md:py-20`}
+        >
+          My Journey
+        </Heading>
+      </motion.div>
+
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:grid-cols-2 2lg:grid-cols-3 place-items-stretch max-w-7xl mx-auto"
+      >
+        {projectData.map((project, index) => (
+          <motion.div key={index} variants={cardVariants}>
+            <motion.div
+              whileHover={{ scale: 1.03, y: -5 }}
+              transition={{ type: "spring", stiffness: 300 }}
             >
-              <div className=" p-2 bg-blue-100">
-                <Heading
-                  type="h3"
-                  className={`${
-                    MyJourneyColors.content.heading[props.mode]
-                  }  py-2 font-extrabold text-center  h-20 font-semibold`}
-                >
-                  {project.name}
-                </Heading>
-              </div>
-              <div className=" pl-2 mt-4 md:mt-3 text-black text-center h-[100px] ">
-                <Text
-                  type="bodyStyleDefault"
-                  className={`${
-                    MyJourneyColors.content.description[props.mode]
-                  }  md:text-base`}
-                >
-                  {project.description}
-                </Text>
-              </div>
-              <div className="flex flex-wrap  w-full  bg-blue-100 pt-2 right-0 p-2 absolute bottom-0 ">
-                {project.tech.map((skill, index) => (
-                  <Tab
-                    key={index}
-                    className={`${MyJourneyColors.Tab[props.mode]} `}
+              <Card className="shadow-xl bg-white hover:shadow-2xl hover:shadow-[#4FBFD7]/30 relative p-0 w-full h-[380px] overflow-hidden rounded-2xl border border-gray-100 transition-all duration-300">
+                <div className="p-4 bg-gradient-to-r from-[#4FBFD7] to-indigo-600">
+                  <Heading
+                    type="h3"
+                    className="text-white py-2 font-bold text-center min-h-[80px] flex items-center justify-center text-sm md:text-base"
                   >
-                    {skill}
-                  </Tab>
-                ))}
-              </div>
-            </Card>
-          );
-        })}
-      </div>
+                    {project.name}
+                  </Heading>
+                </div>
+
+                <div className="p-4 md:p-5 text-gray-700 h-[180px] overflow-y-auto">
+                  <Text
+                    type="bodyStyleDefault"
+                    className="text-sm md:text-base leading-relaxed"
+                  >
+                    {project.description}
+                  </Text>
+                </div>
+
+                <div className="flex flex-wrap gap-2 w-full bg-gradient-to-r from-blue-50 to-indigo-50 p-3 absolute bottom-0 border-t border-gray-200">
+                  {project.tech.map((skill, skillIndex) => (
+                    <Tab
+                      key={skillIndex}
+                      className="bg-[#4FBFD7] text-white px-3 py-1 rounded-full text-xs md:text-sm font-medium hover:bg-indigo-600 transition-colors"
+                    >
+                      {skill}
+                    </Tab>
+                  ))}
+                </div>
+              </Card>
+            </motion.div>
+          </motion.div>
+        ))}
+      </motion.div>
     </Section>
   );
 }

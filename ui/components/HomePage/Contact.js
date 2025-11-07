@@ -5,6 +5,7 @@ import Section from "@/molecules/Section";
 const axios = require("axios");
 
 import { MyContactsColors } from "@/utils/constants";
+import { motion } from "framer-motion";
 
 export default function Contact(props) {
   //sendinblue for message
@@ -45,62 +46,73 @@ export default function Contact(props) {
 
   return (
     <Section
-      // style={props.mode =='Dark' && darkGradientStyle}
-
-      className={"w-full relative z-10"}
+      className={"w-full relative z-10 px-4 md:px-8"}
       bgColor={`${MyContactsColors.sectionBg[props.mode]}`}
       id="contact"
       mode={props.mode}
       useRef={props.useRef}
     >
-      <div className="flex flex-col pt-20  md:py-20">
-        <Heading
-          type={"h1"}
-          className={`font-semibold  text-center  }`}
+      <div className="flex flex-col pt-20 md:py-20 max-w-4xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
         >
-          Contact Me
-        </Heading>
-        <div className="mt-4 text-center  ">
-          <a
-            href="mailto:reach-us@lissun.app"
-            className={`font-semibold `}
+          <Heading
+            type={"h1"}
+            className={`${MyContactsColors.textColor[props.mode]} font-bold text-3xl md:text-5xl text-center mb-4`}
           >
-            adityaknegi@gmail.com
-          </a>
-        </div>
-        <form
-          className="max-w-[800px] flex gap-4 flex-col w-full mx-auto mt-8 border-2 p-10 md:p-20 bg-white rounded-2xl"
+            Contact Me
+          </Heading>
+
+          <div className="mt-4 text-center">
+            <motion.a
+              href="mailto:adityaknegi@gmail.com"
+              whileHover={{ scale: 1.05 }}
+              className="text-[#4FBFD7] hover:text-indigo-600 font-semibold text-lg md:text-xl transition-colors"
+            >
+              adityaknegi@gmail.com
+            </motion.a>
+          </div>
+        </motion.div>
+
+        <motion.form
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="w-full mx-auto mt-8 md:mt-12 border-2 border-gray-200 p-6 md:p-12 bg-white rounded-2xl shadow-xl"
           onSubmit={handleSubmit}
         >
-          <div className="mb-4  flex  flex-col">
+          <div className="mb-6 flex flex-col">
             <label
-              className={`${
-                MyContactsColors.textColor[props.mode]
-              }} font-semibold`}
+              className="text-gray-700 font-semibold mb-2 text-sm md:text-base"
               htmlFor="name"
             >
-              Name:
+              Name
             </label>
-            <input
-              className="max-w-sm	 px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500"
+            <motion.input
+              whileFocus={{ scale: 1.01 }}
+              className="w-full px-4 py-3 rounded-xl border-2 border-gray-300 focus:outline-none focus:border-[#4FBFD7] transition-all"
               id="name"
               type="text"
               name="name"
               placeholder="Your name"
               required
-            />{" "}
+            />
           </div>
-          <div className="mb-4 flex  flex-col">
+
+          <div className="mb-6 flex flex-col">
             <label
-              className={`${
-                MyContactsColors.textColor[props.mode]
-              }}  font-semibold`}
+              className="text-gray-700 font-semibold mb-2 text-sm md:text-base"
               htmlFor="email"
             >
-              Email:
+              Email
             </label>
-            <input
-              className="max-w-sm	 px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500"
+            <motion.input
+              whileFocus={{ scale: 1.01 }}
+              className="w-full px-4 py-3 rounded-xl border-2 border-gray-300 focus:outline-none focus:border-[#4FBFD7] transition-all"
               id="email"
               type="email"
               name="email"
@@ -108,33 +120,36 @@ export default function Contact(props) {
               required
             />
           </div>
-          <div className="mb-4">
+
+          <div className="mb-6">
             <label
-              className={`${
-                MyContactsColors.textColor[props.mode]
-              }} font-semibold`}
+              className="text-gray-700 font-semibold mb-2 text-sm md:text-base block"
               htmlFor="message"
             >
-              Message:
+              Message
             </label>
-            <textarea
-              className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500"
+            <motion.textarea
+              whileFocus={{ scale: 1.01 }}
+              className="w-full px-4 py-3 rounded-xl border-2 border-gray-300 focus:outline-none focus:border-[#4FBFD7] transition-all resize-none"
               id="message"
               name="message"
-              rows="5"
+              rows="6"
               placeholder="Your message"
               required
-            ></textarea>
+            ></motion.textarea>
           </div>
+
           <div className="flex justify-center">
-            <button
-              className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            <motion.button
+              whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(79, 191, 215, 0.4)" }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-gradient-to-r from-[#4FBFD7] to-indigo-600 hover:from-[#3da8bd] hover:to-indigo-700 text-white font-bold py-3 px-8 md:px-12 rounded-xl focus:outline-none shadow-lg transition-all text-base md:text-lg"
               type="submit"
             >
               Send Message
-            </button>
+            </motion.button>
           </div>
-        </form>
+        </motion.form>
       </div>
     </Section>
   );
