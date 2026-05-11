@@ -75,7 +75,7 @@ export default function Header({ sectionRefs }) {
             </Link>
           ))}
           <a
-            href="https://drive.google.com/file/d/1Sw02boTJqhv4HKW4PciBe54YYOaqofwr/view?usp=sharing"
+            href="https://drive.google.com/file/d/1s3N04GyssOqeeA9QDyQKdbgZSM13JuPg/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm px-4 py-1.5 border border-emerald-400/40 text-emerald-400 hover:bg-emerald-400/10 rounded transition-all duration-200"
@@ -125,7 +125,7 @@ export default function Header({ sectionRefs }) {
                 </Link>
               ))}
               <a
-                href="https://drive.google.com/file/d/1Sw02boTJqhv4HKW4PciBe54YYOaqofwr/view?usp=sharing"
+                href="https://drive.google.com/file/d/1s3N04GyssOqeeA9QDyQKdbgZSM13JuPg/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm text-emerald-400 py-1"
