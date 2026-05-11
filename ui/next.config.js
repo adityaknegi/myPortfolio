@@ -8,9 +8,4 @@ module.exports = {
         domains: [],
     },
     reactStrictMode: true,
-    swcMinify: true,
-
-    experimental: {
-      appDir: true,
-    }
   }
