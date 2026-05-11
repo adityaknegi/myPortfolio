@@ -1,148 +1,152 @@
 "use client";
 
-import Section from "@/molecules/Section";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { WORK_ITEMS } from "@/utils/constants";
 
-import { Tab, Heading, Card, Text } from "@/atoms/index";
-import { MyJourneyColors } from "@/utils/constants";
-import { motion } from "framer-motion";
+function sortByPeriod(items) {
+  return [...items].sort((a, b) => {
+    const yearA = parseInt(a.period.split('—')[0].trim().replace('Present', '9999'));
+    const yearB = parseInt(b.period.split('—')[0].trim().replace('Present', '9999'));
+    return yearB - yearA;
+  });
+}
 
-export default function Journey(props) {
-  const projectData = [
-    {
-      name: "Data Science Intern   (2019)",
-      description:
-        "Work on Implemented Spiking Neural Network rules by reading research papers and experimenting with different datasets. 3Implemented 1D convolution Neural Network from scratch and tested in different datasets.",
-      tech: ["Python", "R"],
-    },
-    {
-      name: "Kaggle Competition (2019-2020)",
-      description:
-        "Participated in Kaggle Competition and Won two silver medal",
-      tech: ["Machine Learning ", "Deep Learning"],
-      link: "https://www.kaggle.com/negi009",
-    },
-    {
-      name: "Computer Vision Intern (Lincode Lab) (2020)",
-      description:
-        "Worked on state-of-the-art Deep Learning / Computer Vision techniques to detect defects in manufactured products",
-      tech: ["Python", "Tensorflow", "NumPy", "pandas"],
-    },
-    {
-      name: "Moneyfit App(Backend) (2020-2021)",
-      description:
-        "App that tracks every type of Indian investments. Full-Stack Development: Android Application, web server (Django)",
-      link: "",
-      tech: ["Python", "Django", "postgreSql"],
-    },
-    {
-      name: "Software engineer at Knitter (Backend Engineer) (2020-2021)",
-      description:
-        "Worked as Backend development using Django, worked on api, query optimzation, caching to improve user experience",
-      link: "",
-      tech: ["Python", "Django", "postgreSql"],
-    },
+export default function Work({ sectionRef }) {
+  const [activeTab, setActiveTab] = useState('all');
 
-    {
-      name: "Full stack developer at Napses (2021-current)",
-      description: "Work on creating end to end solution for multiple Clients",
-      tech: ["Nodejs", "PostgreSql", "NextJs", "Angular", "Aws"],
-    },
+  const tabs = [
+    { id: 'all', label: 'All' },
+    { id: 'job', label: 'Experience' },
+    { id: 'project', label: 'Projects' },
   ];
-  const darkGradientStyle = {
-    backgroundImage: "linear-gradient(to top, #141E30, #1A2533, #0D1317)",
-  };
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-      },
-    },
-  };
 
-  const cardVariants = {
-    hidden: { opacity: 0, y: 50, scale: 0.9 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut",
-      },
-    },
-  };
+  const filtered = (() => {
+    if (activeTab === 'all') {
+      const jobs = sortByPeriod(WORK_ITEMS.filter((w) => w.type === 'job'));
+      const projects = sortByPeriod(WORK_ITEMS.filter((w) => w.type === 'project'));
+      return [...jobs, ...projects];
+    }
+    return sortByPeriod(WORK_ITEMS.filter((w) => w.type === activeTab));
+  })();
 
   return (
-    <Section
-      className={"py-10 md:py-20 relative z-10 px-4 md:px-8"}
-      bgColor={`${MyJourneyColors.sectionBg[props.mode]}`}
-      id="journey"
-      mode={props.mode}
-      useRef={props.useRef}
-    >
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        <Heading
-          type={"h2"}
-          className={`${MyJourneyColors.textColor[props.mode]} text-3xl md:text-5xl font-extrabold text-center py-10 md:py-20`}
+    <section id="work" ref={sectionRef} className="py-28 px-6 border-t border-[#111]">
+      <div className="max-w-5xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
         >
-          My Journey
-        </Heading>
-      </motion.div>
+          <p className="font-mono text-emerald-400 text-sm mb-2">02. work</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">Experience &amp; Projects</h2>
+        </motion.div>
 
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:grid-cols-2 2lg:grid-cols-3 place-items-stretch max-w-7xl mx-auto"
-      >
-        {projectData.map((project, index) => (
-          <motion.div key={index} variants={cardVariants}>
-            <motion.div
-              whileHover={{ scale: 1.03, y: -5 }}
-              transition={{ type: "spring", stiffness: 300 }}
+        {/* Tabs */}
+        <div className="flex gap-1 mb-8 bg-[#111] border border-[#1a1a1a] rounded-lg p-1 w-fit">
+          {tabs.map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className={`px-4 py-1.5 text-sm rounded-md transition-all duration-200 ${
+                activeTab === tab.id
+                  ? 'bg-emerald-500 text-black font-semibold'
+                  : 'text-[#666] hover:text-[#aaa]'
+              }`}
             >
-              <Card className="shadow-xl bg-white hover:shadow-2xl hover:shadow-[#4FBFD7]/30 relative p-0 w-full h-[380px] overflow-hidden rounded-2xl border border-gray-100 transition-all duration-300">
-                <div className="p-4 bg-gradient-to-r from-[#4FBFD7] to-indigo-600">
-                  <Heading
-                    type="h3"
-                    className="text-white py-2 font-bold text-center min-h-[80px] flex items-center justify-center text-sm md:text-base"
-                  >
-                    {project.name}
-                  </Heading>
-                </div>
+              {tab.label}
+            </button>
+          ))}
+        </div>
 
-                <div className="p-4 md:p-5 text-gray-700 h-[180px] overflow-y-auto">
-                  <Text
-                    type="bodyStyleDefault"
-                    className="text-sm md:text-base leading-relaxed"
-                  >
-                    {project.description}
-                  </Text>
-                </div>
+        {/* Section label when showing "All" */}
+        <AnimatePresence mode="popLayout">
+          <motion.div key={activeTab}>
+            {activeTab === 'all' && (
+              <div>
+                {/* Experience block */}
+                <p className="font-mono text-xs text-[#333] uppercase tracking-widest mb-0 pb-0">Experience</p>
+                {sortByPeriod(WORK_ITEMS.filter((w) => w.type === 'job')).map((item, i) => (
+                  <WorkRow key={item.company + item.period} item={item} i={i} />
+                ))}
 
-                <div className="flex flex-wrap gap-2 w-full bg-gradient-to-r from-blue-50 to-indigo-50 p-3 absolute bottom-0 border-t border-gray-200">
-                  {project.tech.map((skill, skillIndex) => (
-                    <Tab
-                      key={skillIndex}
-                      className="bg-[#4FBFD7] text-white px-3 py-1 rounded-full text-xs md:text-sm font-medium hover:bg-indigo-600 transition-colors"
-                    >
-                      {skill}
-                    </Tab>
-                  ))}
-                </div>
-              </Card>
-            </motion.div>
+                <p className="font-mono text-xs text-[#333] uppercase tracking-widest mt-10 mb-0">Projects</p>
+                {sortByPeriod(WORK_ITEMS.filter((w) => w.type === 'project')).map((item, i) => (
+                  <WorkRow key={item.company + item.period} item={item} i={i} />
+                ))}
+              </div>
+            )}
+
+            {activeTab !== 'all' && (
+              <div>
+                {filtered.map((item, i) => (
+                  <WorkRow key={item.company + item.period} item={item} i={i} />
+                ))}
+              </div>
+            )}
           </motion.div>
-        ))}
-      </motion.div>
-    </Section>
+        </AnimatePresence>
+      </div>
+    </section>
+  );
+}
+
+function WorkRow({ item, i }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.25, delay: i * 0.04 }}
+      className="group"
+    >
+      <div className="md:grid md:grid-cols-[180px_1fr] gap-8 py-5 border-b border-[#111] hover:border-[#1e1e1e] transition-colors">
+        {/* Period + badges */}
+        <div className="flex flex-row md:flex-col gap-2 md:gap-1.5 items-center md:items-start mb-2 md:mb-0 pt-0.5">
+          <p className="font-mono text-xs text-[#3a3a3a] whitespace-nowrap">{item.period}</p>
+          {item.status === 'discontinued' && (
+            <span className="font-mono text-xs text-[#444] border border-[#222] px-1.5 py-0.5 rounded">
+              discontinued
+            </span>
+          )}
+        </div>
+
+        {/* Content */}
+        <div>
+          <h3 className="text-white font-semibold text-sm group-hover:text-emerald-400 transition-colors duration-200 leading-snug">
+            {item.role}
+            <span className="text-[#444] font-normal mx-1.5">·</span>
+            {item.link ? (
+              <a
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#555] hover:text-emerald-400 transition-colors font-normal"
+              >
+                {item.company} ↗
+              </a>
+            ) : (
+              <span className="text-[#555] font-normal">{item.company}</span>
+            )}
+          </h3>
+
+          <p className="text-[#666] text-sm mt-2 leading-relaxed max-w-xl">
+            {item.description}
+          </p>
+
+          <div className="flex flex-wrap gap-1.5 mt-3">
+            {item.tech.map((t) => (
+              <span
+                key={t}
+                className="font-mono text-xs text-[#444] bg-[#0d0d0d] border border-[#1a1a1a] px-2 py-0.5 rounded"
+              >
+                {t}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </motion.div>
   );
 }

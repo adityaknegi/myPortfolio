@@ -1,92 +1,106 @@
-"use client"
+"use client";
 
-import Heading from '@/atoms/Heading'
-import { Text} from "@/atoms/index";
-import Section from '@/molecules/Section'
-import {AboutMeColors} from '@/utils/constants'
-import { useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
+import { TECH_STACK } from "@/utils/constants";
 
+const SERVICES = [
+  {
+    title: "API & Backend",
+    desc: "REST & GraphQL APIs, microservices architecture, auth systems, and database design that scales.",
+  },
+  {
+    title: "Full Stack",
+    desc: "End-to-end web applications with React/Next.js frontends backed by robust server-side logic.",
+  },
+  {
+    title: "Data & ML",
+    desc: "Pipeline design, model deployment, and data engineering for analytics-heavy products.",
+  },
+];
 
-export default function AboutMe(props) {
- 
+export default function About({ sectionRef }) {
+  return (
+    <section id="about" ref={sectionRef} className="py-28 px-6 border-t border-[#111]">
+      <div className="max-w-5xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
+          <p className="font-mono text-emerald-400 text-sm mb-2">01. about</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-12">About me</h2>
+        </motion.div>
 
-  useEffect(()=>{
-    if(!document || !window){ return}
+        <div className="grid md:grid-cols-2 gap-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            viewport={{ once: true }}
+            className="space-y-4"
+          >
+            <p className="text-[#888] leading-relaxed">
+              I'm a backend-focused engineer with 5+ years of experience building
+              production-grade systems. I've worked across the full stack —
+              from Django APIs and Node.js services to React/Next.js frontends — but
+              my core strength is in the server side.
+            </p>
+            <p className="text-[#888] leading-relaxed">
+              Currently freelancing — helping startups and businesses ship reliable software fast.
+              I also build my own products; a handful have reached paying users.
+              Open to full-time roles where I can own large technical problems end-to-end.
+            </p>
+            <p className="text-[#888] leading-relaxed">
+              When I'm not building software, I'm hiking or competing in ML challenges on Kaggle
+              — where I've earned two silver medals.
+            </p>
 
-    document?.getElementById('emailLink')?.addEventListener('click', function() {
-      let email = 'adityaknegi@gmail.com';
-      let subject = 'Regarding your portfolio';
-      let body = 'Hello Aditya, I am reaching out regarding your portfolio.';
+            <div className="pt-4">
+              <p className="text-[#555] text-xs font-mono mb-3 uppercase tracking-widest">Stack</p>
+              <div className="flex flex-wrap gap-2">
+                {TECH_STACK.map((t) => (
+                  <span
+                    key={t}
+                    className="font-mono text-xs text-[#666] border border-[#1e1e1e] bg-[#111] px-2.5 py-1 rounded"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </motion.div>
 
-      window.location.href = 'mailto:' + email + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-  })
-},[])
-return (
-<Section
-  className={'mt-[200px] md:mt-[800px] relative z-10'}
-  padding='px-4 md:px-10 py-10 md:py-20'
-  bgColor={`${AboutMeColors.sectionBg[props.mode]}`}
-  id="aboutMe"
-  mode={props.mode}
-  useRef={props.useRef}
->
-  <motion.div
-    initial={{ opacity: 0, y: 50 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.8 }}
-    viewport={{ once: true, margin: "-100px" }}
-  >
-    <Heading
-      type={'h2'}
-      className={`${AboutMeColors.textColor[props.mode]} text-3xl md:text-5xl font-extrabold text-center p-2 mb-6 md:mb-10`}
-    >
-      About Me
-    </Heading>
-  </motion.div>
-
-  <motion.div
-    initial={{ opacity: 0, y: 30 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.8, delay: 0.2 }}
-    viewport={{ once: true, margin: "-100px" }}
-    className="max-w-4xl mx-auto"
-  >
-    <Text
-      className={`${AboutMeColors.textColor[props.mode]} text-base md:text-xl leading-relaxed text-center md:text-left px-2 md:px-0`}
-      type='bodyStyleExtraLarge'
-    >
-      Hey there, I&apos;m Aditya – a web applications enthusiast and software engineer.
-      I'm all about turning ideas into sleek digital experiences.
-      When I'm not coding, I'm out hiking and soaking in the great outdoors.
-      <br/><br/>
-      Feel free to drop me a line at{' '}
-      <motion.span
-        whileHover={{ scale: 1.05 }}
-        className='text-[#4FBFD7] underline font-bold text-lg md:text-xl cursor-pointer transition-colors hover:text-indigo-600'
-        id='emailLink'
-      >
-        adityaknegi@gmail.com
-      </motion.span>
-      {' '}Let's connect and create something awesome!
-    </Text>
-
-    <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 0.8, delay: 0.4 }}
-      viewport={{ once: true }}
-      className="mt-8 md:mt-12 text-center"
-    >
-      <Text type='bodyStyleExtraLarge' className='text-[#4FBFD7] font-bold text-lg md:text-2xl'>
-        Cheers,
-      </Text>
-      <Text type='bodyStyleExtraLarge' className='text-[#4FBFD7] font-bold text-lg md:text-2xl mt-2'>
-        Aditya
-      </Text>
-    </motion.div>
-  </motion.div>
-</Section>
-  )
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="space-y-4"
+          >
+            {SERVICES.map((s, i) => (
+              <motion.div
+                key={s.title}
+                initial={{ opacity: 0, x: 10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.4, delay: i * 0.1 }}
+                viewport={{ once: true }}
+                className="group p-5 border border-[#1a1a1a] rounded-lg hover:border-emerald-400/20 hover:bg-[#0d0d0d] transition-all duration-200"
+              >
+                <div className="flex items-start gap-3">
+                  <span className="font-mono text-emerald-400 text-xs mt-0.5 shrink-0">
+                    0{i + 1}
+                  </span>
+                  <div>
+                    <h3 className="text-white font-semibold text-sm mb-1.5">{s.title}</h3>
+                    <p className="text-[#666] text-sm leading-relaxed">{s.desc}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
 }
-

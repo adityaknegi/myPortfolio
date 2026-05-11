@@ -128,6 +128,8 @@ module.exports = {
 			}),
 			fontFamily: (theme) => ({
 				'Nunito': 'Nunito',
+				'inter': ['Inter', 'sans-serif'],
+				'mono': ['JetBrains Mono', 'monospace'],
 				}),
 			boxShadow: (theme) => ({
 				'btn': '0px 2px 8px rgb(0 0 0 / 20%)'
